@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		204CBD331F0411390049DDCB /* DisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CBD321F0411390049DDCB /* DisplayController.swift */; };
+		204CBD351F04113D0049DDCB /* KeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CBD341F04113D0049DDCB /* KeyboardController.swift */; };
+		204CBD371F0411470049DDCB /* PanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CBD361F0411470049DDCB /* PanelController.swift */; };
 		20A6ED5F1F03E6DB006C50ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6ED5E1F03E6DB006C50ED /* AppDelegate.swift */; };
 		20A6ED641F03E6DB006C50ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20A6ED621F03E6DB006C50ED /* Main.storyboard */; };
 		20A6ED661F03E6DB006C50ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20A6ED651F03E6DB006C50ED /* Assets.xcassets */; };
 		20A6ED691F03E6DB006C50ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20A6ED671F03E6DB006C50ED /* LaunchScreen.storyboard */; };
 		20A6ED741F03E6DC006C50ED /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6ED731F03E6DC006C50ED /* CalculatorTests.swift */; };
 		20A6ED7F1F03E6DC006C50ED /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6ED7E1F03E6DC006C50ED /* CalculatorUITests.swift */; };
-		20A6ED8E1F03EEA7006C50ED /* KeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6ED8D1F03EEA7006C50ED /* KeyboardController.swift */; };
-		20A6ED911F03EF01006C50ED /* PanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6ED901F03EF01006C50ED /* PanelController.swift */; };
-		20A6ED931F03EF62006C50ED /* DisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6ED921F03EF62006C50ED /* DisplayController.swift */; };
 		20A6ED951F03F282006C50ED /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6ED941F03F282006C50ED /* Protocols.swift */; };
 		20A6ED981F03F2D6006C50ED /* InputAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6ED971F03F2D6006C50ED /* InputAdapter.swift */; };
 		20A6ED9A1F03F2F0006C50ED /* OutputAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6ED991F03F2F0006C50ED /* OutputAdapter.swift */; };
@@ -40,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		204CBD321F0411390049DDCB /* DisplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayController.swift; sourceTree = "<group>"; };
+		204CBD341F04113D0049DDCB /* KeyboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardController.swift; sourceTree = "<group>"; };
+		204CBD361F0411470049DDCB /* PanelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelController.swift; sourceTree = "<group>"; };
 		20A6ED5B1F03E6DB006C50ED /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20A6ED5E1F03E6DB006C50ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20A6ED631F03E6DB006C50ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,9 +55,6 @@
 		20A6ED7A1F03E6DC006C50ED /* CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20A6ED7E1F03E6DC006C50ED /* CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITests.swift; sourceTree = "<group>"; };
 		20A6ED801F03E6DC006C50ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		20A6ED8D1F03EEA7006C50ED /* KeyboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardController.swift; path = ../KeyboardController.swift; sourceTree = "<group>"; };
-		20A6ED901F03EF01006C50ED /* PanelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PanelController.swift; path = ../PanelController.swift; sourceTree = "<group>"; };
-		20A6ED921F03EF62006C50ED /* DisplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayController.swift; path = ../DisplayController.swift; sourceTree = "<group>"; };
 		20A6ED941F03F282006C50ED /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		20A6ED971F03F2D6006C50ED /* InputAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputAdapter.swift; path = ../InputAdapter.swift; sourceTree = "<group>"; };
 		20A6ED991F03F2F0006C50ED /* OutputAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OutputAdapter.swift; path = ../OutputAdapter.swift; sourceTree = "<group>"; };
@@ -148,9 +148,9 @@
 		20A6ED8F1F03EEB5006C50ED /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				20A6ED921F03EF62006C50ED /* DisplayController.swift */,
-				20A6ED901F03EF01006C50ED /* PanelController.swift */,
-				20A6ED8D1F03EEA7006C50ED /* KeyboardController.swift */,
+				204CBD341F04113D0049DDCB /* KeyboardController.swift */,
+				204CBD361F0411470049DDCB /* PanelController.swift */,
+				204CBD321F0411390049DDCB /* DisplayController.swift */,
 				20A6ED621F03E6DB006C50ED /* Main.storyboard */,
 			);
 			name = Controllers;
@@ -307,12 +307,12 @@
 			files = (
 				20A6ED981F03F2D6006C50ED /* InputAdapter.swift in Sources */,
 				20A6ED951F03F282006C50ED /* Protocols.swift in Sources */,
+				204CBD331F0411390049DDCB /* DisplayController.swift in Sources */,
 				20A6ED9C1F03F305006C50ED /* Brain.swift in Sources */,
-				20A6ED931F03EF62006C50ED /* DisplayController.swift in Sources */,
-				20A6ED911F03EF01006C50ED /* PanelController.swift in Sources */,
-				20A6ED8E1F03EEA7006C50ED /* KeyboardController.swift in Sources */,
+				204CBD371F0411470049DDCB /* PanelController.swift in Sources */,
 				20A6ED9A1F03F2F0006C50ED /* OutputAdapter.swift in Sources */,
 				20A6ED5F1F03E6DB006C50ED /* AppDelegate.swift in Sources */,
+				204CBD351F04113D0049DDCB /* KeyboardController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +566,7 @@
 				20A6ED851F03E6DC006C50ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		20A6ED861F03E6DC006C50ED /* Build configuration list for PBXNativeTarget "CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -574,6 +575,7 @@
 				20A6ED881F03E6DC006C50ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		20A6ED891F03E6DC006C50ED /* Build configuration list for PBXNativeTarget "CalculatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -582,6 +584,7 @@
 				20A6ED8B1F03E6DC006C50ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
