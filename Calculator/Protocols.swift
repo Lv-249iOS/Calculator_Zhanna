@@ -29,16 +29,16 @@ private var operations: Dictionary <String, Operation> = [
 ]
 
 
-protocol InputAdapter {
-    func enter(value: String)
+protocol InputProtocol {
+    func input(value: Int)
 }
 
-protocol OutputAdapter {
+protocol OutputProtocol {
     func output(value: String)
 }
 
 protocol Model {
-    func input(number: Double)
+    func input(number: Int)
     func input (operation: Operation)
 }
 

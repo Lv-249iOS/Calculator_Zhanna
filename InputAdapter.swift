@@ -8,9 +8,17 @@
 
 import Foundation
 
-class InputController {
+class InputAdapter: InputProtocol {
+    static let shared = InputAdapter()
     
-    func enter(value: String) {
+    let brain = Brain.shared
+    
+    func input(value: Int) {
+        
+        brain.input(number: value)
+    }
+    func input(operation: Operation) {
+        brain.input(operation: operation)
         
     }
 

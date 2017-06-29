@@ -8,10 +8,18 @@
 
 import Foundation
 
-class OutputController {
+class OutputAdapter: OutputProtocol {
+    
+    static let shared = OutputAdapter()
+    
+    var display: DisplayController?
+    
+ 
     
     func output(value: String) {
+        display?.showValue(value: value)
         
     }
+    
     
 }

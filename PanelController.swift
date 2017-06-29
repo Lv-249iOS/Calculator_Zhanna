@@ -14,11 +14,6 @@ class PanelController: UIViewController {
     var keyboard: KeyboardController!
     
     
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -28,7 +23,15 @@ class PanelController: UIViewController {
         } else if segue.identifier  == "KeyboardControllerSeque",
             let controller = segue.destination as? KeyboardController {
             keyboard = controller
+            keyboard.touchedDigit = { [weak self] digit in
+                self?.touchDigit(digit: digit)
+                
+            }
         }
-
+        
     }
+    func touchDigit(digit: Int) {
+        InputAdapter.shared.input(value: digit)
+    }
+    
 }

@@ -8,13 +8,23 @@
 
 import Foundation
 
-class Brain {
+class Brain: Model {
   
+    static let shared = Brain()
     
-    func input(number: Double) {
-        
+    var displayValue: String = ""
+    
+    let output = OutputAdapter.shared
+    
+    func input(number: Int) {
+       displayValue += String(number)
+     process()
     }
     func input (operation: Operation) {
+    }
+    
+    func process() {
+        output.output(value: displayValue)
     }
 
 }
