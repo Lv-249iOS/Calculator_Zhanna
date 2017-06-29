@@ -109,6 +109,7 @@
 		20A6ED5D1F03E6DB006C50ED /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				20A6ED621F03E6DB006C50ED /* Main.storyboard */,
 				20A6ED961F03F28B006C50ED /* Model */,
 				20A6ED8F1F03EEB5006C50ED /* Controllers */,
 				20A6ED8C1F03E702006C50ED /* Supporting files */,
@@ -151,7 +152,6 @@
 				204CBD341F04113D0049DDCB /* KeyboardController.swift */,
 				204CBD361F0411470049DDCB /* PanelController.swift */,
 				204CBD321F0411390049DDCB /* DisplayController.swift */,
-				20A6ED621F03E6DB006C50ED /* Main.storyboard */,
 			);
 			name = Controllers;
 			path = ..;
@@ -354,7 +354,6 @@
 				20A6ED631F03E6DB006C50ED /* Base */,
 			);
 			name = Main.storyboard;
-			path = Calculator;
 			sourceTree = "<group>";
 		};
 		20A6ED671F03E6DB006C50ED /* LaunchScreen.storyboard */ = {
@@ -409,7 +408,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -454,7 +453,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

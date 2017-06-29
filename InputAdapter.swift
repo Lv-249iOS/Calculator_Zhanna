@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class InputController {
+    
+    func enter(value: String) {
+        
+    }
+
+}

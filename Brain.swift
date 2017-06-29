@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class Brain {
+  
+    
+    func input(number: Double) {
+        
+    }
+    func input (operation: Operation) {
+    }
+
+}

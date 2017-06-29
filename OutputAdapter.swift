@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class OutputController {
+    
+    func output(value: String) {
+        
+    }
+    
+}
