@@ -76,6 +76,9 @@
                                                 <color key="backgroundColor" red="0.38550682289861599" green="0.57427175039414535" blue="0.57486039400100708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="C"/>
+                                                <connections>
+                                                    <action selector="clearResultWithButton:" destination="deF-1c-VbJ" eventType="touchUpInside" id="tDP-4S-Qsz"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rae-AE-Esd">
                                                 <rect key="frame" x="0.0" y="112" width="92.5" height="110.5"/>
@@ -286,16 +289,17 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="va4-Aq-g1b">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="rAn-zQ-BC5" firstAttribute="top" secondItem="va4-Aq-g1b" secondAttribute="bottom" id="NhL-d2-K0N"/>
-                            <constraint firstItem="va4-Aq-g1b" firstAttribute="leading" secondItem="sw3-Rc-Vec" secondAttribute="leading" id="NrT-B1-oCZ"/>
-                            <constraint firstItem="va4-Aq-g1b" firstAttribute="top" secondItem="8vy-Bh-PGd" secondAttribute="bottom" id="nno-c7-rsm"/>
-                            <constraint firstAttribute="trailing" secondItem="va4-Aq-g1b" secondAttribute="trailing" id="yRD-6E-K7y"/>
+                            <constraint firstAttribute="trailing" secondItem="va4-Aq-g1b" secondAttribute="trailing" id="5oF-1J-VSe"/>
+                            <constraint firstItem="va4-Aq-g1b" firstAttribute="top" secondItem="8vy-Bh-PGd" secondAttribute="bottom" id="dYa-0J-HxE"/>
+                            <constraint firstItem="va4-Aq-g1b" firstAttribute="leading" secondItem="sw3-Rc-Vec" secondAttribute="leading" id="sxj-5u-QXw"/>
+                            <constraint firstItem="rAn-zQ-BC5" firstAttribute="top" secondItem="va4-Aq-g1b" secondAttribute="bottom" id="t1c-Sf-Nu5"/>
                         </constraints>
                     </view>
                     <connections>

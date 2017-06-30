@@ -20,7 +20,7 @@ class InputAdapter: InputProtocol {
             calculatingString = String(_number)
         } else {
         calculatingString = calculatingString + "\(_number)"
-            
+    
         }
         brain.EnterEquation(equation: calculatingString)
     }
@@ -28,9 +28,13 @@ class InputAdapter: InputProtocol {
     
     func enterUtility(_symbol: String) {
         calculatingString = calculatingString + _symbol
-        
-        
+    
         }
+    
+    func removeResult (resultClear: String) {
+        calculatingString = nil
+        brain.remove()
+    }
     
         /*brain.EnterEquation(equation: calculatingString)*/
         

@@ -34,6 +34,13 @@ class Brain: Model {
         process()
    }
     
+    
+    
+    func remove() {
+        equation = nil
+        outputAdapter.presentResult(result: "0")
+    }
+    
     func process() {
         outputAdapter.presentResult(result: equation)
     }
