@@ -8,7 +8,7 @@
 
 import Foundation
 
- enum Operation {
+ /*enum Operation {
     case constant(Double)
     case unaryOperation((Double) -> Double)
     case binaryOperation ((Double, Double) -> Double)
@@ -26,19 +26,20 @@ private var operations: Dictionary <String, Operation> = [
     "+" : Operation.binaryOperation({ $0 + $1 }),
     "−" : Operation.binaryOperation({ $0 - $1 }),
     "=" : Operation.equals
-]
+] */
 
 
 protocol InputProtocol {
-    func input(value: Int)
+    func enterNum(_number: Int)
+    func enterUtility(_symbol: String)
 }
 
 protocol OutputProtocol {
-    func output(value: String)
+    func presentResult(result: String)
 }
 
 protocol Model {
-    func input(number: Int)
-    func input (operation: Operation)
+    func EnterEquation(equation: String)
+    
 }
 

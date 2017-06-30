@@ -10,16 +10,33 @@ import Foundation
 
 class InputAdapter: InputProtocol {
     static let shared = InputAdapter()
-    
     let brain = Brain.shared
+    var calculatingString:String!
     
-    func input(value: Int) {
-        
-        brain.input(number: value)
-    }
-    func input(operation: Operation) {
-        brain.input(operation: operation)
-        
-    }
 
-}
+    
+    func enterNum(_number: Int) {
+        if calculatingString == nil || calculatingString == "0" {
+            calculatingString = String(_number)
+        } else {
+        calculatingString = calculatingString + "\(_number)"
+            
+        }
+        brain.EnterEquation(equation: calculatingString)
+    }
+    
+    
+    func enterUtility(_symbol: String) {
+        calculatingString = calculatingString + _symbol
+        
+        
+        }
+    
+        /*brain.EnterEquation(equation: calculatingString)*/
+        
+        
+        
+    }
+   
+
+

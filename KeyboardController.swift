@@ -12,16 +12,19 @@ class KeyboardController: UIViewController {
     
     
     var touchedDigit: ((_ digit: Int) -> ())?
-    
+    var touchedSymbol: ((_ symbol: String) -> ())?
     
     @IBAction func touchDigit(button: UIButton) {
         touchedDigit?(button.tag)
         
     }
     
-    
+    @IBAction func touchSymbol (button : UIButton) {
+        touchedSymbol?(button.currentTitle!)
         
     }
+    
+}
 
 
     

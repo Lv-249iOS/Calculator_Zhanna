@@ -9,22 +9,32 @@
 import Foundation
 
 class Brain: Model {
-  
     static let shared = Brain()
     
-    var displayValue: String = ""
     
-    let output = OutputAdapter.shared
+    let outputAdapter = OutputAdapter.shared
+    var equation: String!
     
-    func input(number: Int) {
+    
+    /*func input(number: Int) {
        displayValue += String(number)
      process()
     }
+    
     func input (operation: Operation) {
     }
     
     func process() {
         output.output(value: displayValue)
+    }*/
+    
+   
+    func EnterEquation(equation: String) {
+        self.equation = equation
+        process()
+   }
+    
+    func process() {
+        outputAdapter.presentResult(result: equation)
     }
-
 }

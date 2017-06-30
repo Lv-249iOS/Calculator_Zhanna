@@ -13,17 +13,19 @@ class DisplayController: UIViewController {
     
     @IBOutlet var displayLabel: UILabel!
     
-    let output = OutputAdapter.shared
+    let outputAdapter = OutputAdapter.shared
     
-    func showValue(value: String) {
-        displayLabel.text = value
+    func presentResult(_ result: String) {
+        displayLabel.text = result
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        output.display = self
+        
+        
+        outputAdapter.display = self
     }
 
 }

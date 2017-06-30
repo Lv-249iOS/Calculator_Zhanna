@@ -12,7 +12,7 @@ class PanelController: UIViewController {
     
     var display: DisplayController!
     var keyboard: KeyboardController!
-    
+    let inputAdapter = InputAdapter.shared
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -22,16 +22,26 @@ class PanelController: UIViewController {
             display = controller
         } else if segue.identifier  == "KeyboardControllerSeque",
             let controller = segue.destination as? KeyboardController {
+            
             keyboard = controller
             keyboard.touchedDigit = { [weak self] digit in
                 self?.touchDigit(digit: digit)
-                
             }
+            
+            keyboard.touchedSymbol = { [weak self] symbol in
+                self?.touchSymbol(symbol: symbol)
+            }
+
+            
         }
         
     }
     func touchDigit(digit: Int) {
-        InputAdapter.shared.input(value: digit)
+        inputAdapter.enterNum( _number: digit)
+    }
+    
+    func touchSymbol(symbol: String) {
+        inputAdapter.enterUtility(_symbol: symbol)
     }
     
 }
