@@ -17,7 +17,6 @@ class KeyboardController: UIViewController {
     
     @IBAction func touchDigit(button: UIButton) {
         touchedDigit?(button.tag)
-        
     }
     
     @IBAction func touchSymbol (button : UIButton) {

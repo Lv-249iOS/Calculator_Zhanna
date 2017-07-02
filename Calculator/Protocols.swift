@@ -8,38 +8,18 @@
 
 import Foundation
 
- /*enum Operation {
-    case constant(Double)
-    case unaryOperation((Double) -> Double)
-    case binaryOperation ((Double, Double) -> Double)
-    case equals
-}
-
-private var operations: Dictionary <String, Operation> = [
-    "π" : Operation.constant(Double.pi),
-    "e" : Operation.constant(M_E),
-    "√" : Operation.unaryOperation(sqrt),
-    "cos" : Operation.unaryOperation(cos),
-    "±" : Operation.unaryOperation({-$0}),
-    "×" : Operation.binaryOperation({ $0 * $1 }),
-    "÷" : Operation.binaryOperation({ $0 / $1 }),
-    "+" : Operation.binaryOperation({ $0 + $1 }),
-    "−" : Operation.binaryOperation({ $0 - $1 }),
-    "=" : Operation.equals
-] */
-
-
 protocol InputProtocol {
-    func enterNum(_number: Int)
-    func enterUtility(_symbol: String)
+    func enterNum(_ number: Int)
+    func enterUtility(_ symbol: String)
 }
 
 protocol OutputProtocol {
-    func presentResult(result: String)
+    func presentResult(_ result: String)
 }
 
 protocol Model {
-    func EnterEquation(equation: String)
-    
+    func enterEquation(_ equation: String)
+    func calculate()
+    func clear()
 }
 

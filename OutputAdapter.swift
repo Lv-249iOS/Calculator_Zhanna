@@ -14,7 +14,7 @@ class OutputAdapter: OutputProtocol {
     var display: DisplayController?
     
     
-    func presentResult(result: String) {
+    func presentResult(_ result: String) {
         display?.presentResult(result)
     }
 

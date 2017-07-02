@@ -34,22 +34,21 @@ class PanelController: UIViewController {
             
             
             keyboard.clearedResult = { [weak self] clearRes in
-                self?.clearResult(clearRes: clearRes)
-                
+                self?.clearResult()
             }
             
         }
         
     }
     func touchDigit(digit: Int) {
-        inputAdapter.enterNum( _number: digit)
+        inputAdapter.enterNum(digit)
     }
     
     func touchSymbol(symbol: String) {
-        inputAdapter.enterUtility(_symbol: symbol)
+        inputAdapter.enterUtility(symbol)
     }
-    func clearResult(clearRes: String) {
-        inputAdapter.removeResult(resultClear: "0")
+    func clearResult() {
+        inputAdapter.removeResult()
     }
     
 }

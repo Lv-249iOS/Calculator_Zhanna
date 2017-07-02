@@ -10,38 +10,49 @@ import Foundation
 
 class Brain: Model {
     static let shared = Brain()
-    
-    
     let outputAdapter = OutputAdapter.shared
     var equation: String!
     
     
     /*func input(number: Int) {
-       displayValue += String(number)
+     displayValue += String(number)
      process()
-    }
+     }
+     
+     func input (operation: Operation) {
+     }
+     
+     func process() {
+     output.output(value: displayValue)
+     }*/
     
-    func input (operation: Operation) {
-    }
     
-    func process() {
-        output.output(value: displayValue)
-    }*/
-    
-   
-    func EnterEquation(equation: String) {
+    func enterEquation(_ equation: String) {
         self.equation = equation
-        process()
-   }
-    
-    
-    
-    func remove() {
-        equation = nil
-        outputAdapter.presentResult(result: "0")
+        outputAdapter.presentResult(equation)
     }
     
-    func process() {
-        outputAdapter.presentResult(result: equation)
+    func calculate() {
+        let expr = NSExpression(format: equation)
+        clear()
+        if let result = expr.expressionValue(with: nil, context: nil) as? Double {
+            outputAdapter.presentResult(String(result))
+        } else {
+            outputAdapter.presentResult("failed")
+        }
     }
+
+    func clear() {
+        equation = ""
+        outputAdapter.presentResult("0")
+    }
+    
+    func calculateResult(_: () -> (Double)) { // Trying to do it after SU
+        
+    }
+    
+        
+        
 }
+
+

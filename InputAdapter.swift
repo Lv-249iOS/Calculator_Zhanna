@@ -13,34 +13,38 @@ class InputAdapter: InputProtocol {
     let brain = Brain.shared
     var calculatingString:String!
     
-
     
-    func enterNum(_number: Int) {
+    
+    func enterNum(_ _number: Int) {
         if calculatingString == nil || calculatingString == "0" {
             calculatingString = String(_number)
         } else {
-        calculatingString = calculatingString + "\(_number)"
-    
+            calculatingString = calculatingString + "\(_number)"
+            
         }
-        brain.EnterEquation(equation: calculatingString)
+        brain.enterEquation(calculatingString)
     }
     
     
-    func enterUtility(_symbol: String) {
-        calculatingString = calculatingString + _symbol
-    
+    func enterUtility(_ symbol: String) {
+        if symbol == "=" {
+            calculatingString = ""
+            brain.calculate()
+        } else {
+            calculatingString = calculatingString + symbol
+            brain.enterEquation(calculatingString)
         }
-    
-    func removeResult (resultClear: String) {
-        calculatingString = nil
-        brain.remove()
     }
     
-        /*brain.EnterEquation(equation: calculatingString)*/
-        
-        
-        
+    func removeResult () {
+        calculatingString = ""
+        brain.clear()
     }
-   
+    
+    
+    
+    
+}
+
 
 
