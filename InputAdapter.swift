@@ -15,11 +15,11 @@ class InputAdapter: InputProtocol {
     
     
     
-    func enterNum(_ _number: Int) {
+    func enterNum(_ number: Int) {
         if calculatingString == nil || calculatingString == "0" {
-            calculatingString = String(_number)
+            calculatingString = String(number)
         } else {
-            calculatingString = calculatingString + "\(_number)"
+            calculatingString = calculatingString + "\(number)"
             
         }
         brain.enterEquation(calculatingString)
@@ -28,8 +28,11 @@ class InputAdapter: InputProtocol {
     
     func enterUtility(_ symbol: String) {
         if symbol == "=" {
-            calculatingString = ""
+            calculatingString = brain.equation
             brain.calculate()
+        } else if symbol == "^" {
+            calculatingString = calculatingString + "**"
+            brain.enterEquation(calculatingString)
         } else {
             calculatingString = calculatingString + symbol
             brain.enterEquation(calculatingString)
@@ -40,9 +43,6 @@ class InputAdapter: InputProtocol {
         calculatingString = ""
         brain.clear()
     }
-    
-    
-    
     
 }
 

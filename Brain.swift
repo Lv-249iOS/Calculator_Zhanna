@@ -47,12 +47,7 @@ class Brain: Model {
         outputAdapter.presentResult("0")
     }
     
-    func calculateResult(_: () -> (Double)) { // Trying to do it after SU
-        
-    }
     
-        
-        
 }
 
 
