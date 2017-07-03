@@ -19,7 +19,5 @@ protocol OutputProtocol {
 
 protocol Model {
     func enterEquation(_ equation: String)
-    func calculate()
-    func clear()
 }
 

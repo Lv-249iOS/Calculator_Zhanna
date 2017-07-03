@@ -13,8 +13,7 @@ class InputAdapter: InputProtocol {
     let brain = Brain.shared
     var calculatingString:String!
     
-    
-    
+
     func enterNum(_ number: Int) {
         if calculatingString == nil || calculatingString == "0" {
             calculatingString = String(number)
@@ -27,12 +26,12 @@ class InputAdapter: InputProtocol {
     
     
     func enterUtility(_ symbol: String) {
+  
         if symbol == "=" {
             calculatingString = brain.equation
-            brain.calculate()
-        } else if symbol == "^" {
-            calculatingString = calculatingString + "**"
-            brain.enterEquation(calculatingString)
+            brain.calculate(comletion:{ result in
+                calculatingString = result
+            })
         } else {
             calculatingString = calculatingString + symbol
             brain.enterEquation(calculatingString)
