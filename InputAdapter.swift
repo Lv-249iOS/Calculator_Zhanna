@@ -25,18 +25,42 @@ class InputAdapter: InputProtocol {
     }
     
     
-    func enterUtility(_ symbol: String) {
+    func enterUtility(_ symbol: Int) {
+        switch symbol {
+            case Operation.pls.rawValue : calculatingString = calculatingString + "+"
+            case Operation.mns.rawValue: calculatingString = calculatingString + "-"
+            case Operation.mul.rawValue: calculatingString = calculatingString + "×"
+            case Operation.div.rawValue: calculatingString = calculatingString + "÷"
+            case Operation.pow.rawValue: calculatingString = calculatingString + "^"
+            case Operation.sqrt.rawValue: calculatingString = calculatingString + "√"
+            case Operation.sin.rawValue: calculatingString = calculatingString + "sin"
+            case Operation.cos.rawValue: calculatingString = calculatingString + "cos"
+            case Operation.log.rawValue: calculatingString = calculatingString + "log"
+            case Operation.leftBracket.rawValue: calculatingString = calculatingString + "("
+            case Operation.rightBracket.rawValue: calculatingString = calculatingString + ")"
+            case Operation.sqrt.rawValue: calculatingString = calculatingString + "√"
+            case Operation.pi.rawValue: calculatingString = calculatingString + "π"
+            case Operation.equal.rawValue: calculatingString = calculatingString + "="
+            case Operation.clear.rawValue: calculatingString = calculatingString + "C"
+            case Operation.dot.rawValue: calculatingString = calculatingString + "."
+            case Operation.sign.rawValue: calculatingString = calculatingString + "±"
+        default:
+            print("Invalid input")
+        }
   
-        if symbol == "=" {
+        if symbol == 10013 {
             calculatingString = brain.equation
             brain.calculate(comletion:{ result in
                 calculatingString = result
             })
         } else {
-            calculatingString = calculatingString + symbol
+//            calculatingString = calculatingString + String(symbol)
             brain.enterEquation(calculatingString)
         }
-    }
+            }
+    
+    
+    
     
     func removeResult () {
         calculatingString = ""

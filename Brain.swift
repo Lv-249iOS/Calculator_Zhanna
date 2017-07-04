@@ -36,7 +36,7 @@ class Brain: Model {
         outputAdapter.presentResult("0")
     }
     
-  
-}
+    
+    }
 
 

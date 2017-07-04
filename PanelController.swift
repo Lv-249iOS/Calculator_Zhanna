@@ -44,7 +44,7 @@ class PanelController: UIViewController {
         inputAdapter.enterNum(digit)
     }
     
-    func touchSymbol(symbol: String) {
+    func touchSymbol(symbol: Int) {
         inputAdapter.enterUtility(symbol)
     }
     func clearResult() {
