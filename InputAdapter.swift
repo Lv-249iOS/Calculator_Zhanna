@@ -11,7 +11,7 @@ import Foundation
 class InputAdapter: InputProtocol {
     static let shared = InputAdapter()
     let brain = Brain.shared
-    var calculatingString:String!
+    var calculatingString:String! = ""
     
 
     func enterNum(_ number: Int) {

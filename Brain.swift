@@ -19,8 +19,8 @@ class Brain: Model {
     }
     
     func calculate(comletion: (String)->()) {
-        let equationString = equation.replacingOccurrences(of: "^", with: "**")
-        let expr = NSExpression(format: equationString)
+//        let equationString = equation.replacingOccurrences(of: "^", with: "**")
+        let expr = NSExpression(format: equation)
         clear()
         if let result = expr.expressionValue(with: nil, context: nil) as? Double {
             outputAdapter.presentResult(String(result))
@@ -36,7 +36,7 @@ class Brain: Model {
         outputAdapter.presentResult("0")
     }
     
-    
+  
 }
 
 
