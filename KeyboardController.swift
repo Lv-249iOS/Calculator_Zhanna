@@ -13,7 +13,7 @@ class KeyboardController: UIViewController {
     
     var touchedDigit: ((_ digit: Int) -> ())?
     var touchedSymbol: ((_ symbol: Int) -> ())?
-    var clearedResult: ((_ clearRes: String) -> ())?
+   
     
     
     
@@ -25,9 +25,6 @@ class KeyboardController: UIViewController {
     @IBAction func touchSymbol (button : UIButton) {
         touchedSymbol?(button.tag)
         
-    }
-    @IBAction func clearResult (button: UIButton) {
-        clearedResult?(button.currentTitle!)
     }
 }
 

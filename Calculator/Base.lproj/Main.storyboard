@@ -77,7 +77,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="C"/>
                                                 <connections>
-                                                    <action selector="clearResultWithButton:" destination="deF-1c-VbJ" eventType="touchUpInside" id="jSo-nn-6tM"/>
+                                                    <action selector="touchSymbolWithButton:" destination="deF-1c-VbJ" eventType="touchUpInside" id="ZA9-h0-cV0"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rae-AE-Esd">
@@ -353,6 +353,10 @@
         <scene sceneID="JEY-fD-plI">
             <objects>
                 <viewController id="lNt-rJ-hei" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Glt-lA-ZCC"/>
+                        <viewControllerLayoutGuide type="bottom" id="A1W-hN-Djs"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Tgo-m3-JEh">
                         <rect key="frame" x="0.0" y="0.0" width="257" height="309"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

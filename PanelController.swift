@@ -43,9 +43,6 @@ class PanelController: UIViewController {
         inputAdapter.enterUtility(symbol)
     }
     
-    func clearResult() {
-        inputAdapter.removeResult()
-    }
-
+    
     
 }

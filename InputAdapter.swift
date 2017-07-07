@@ -57,8 +57,10 @@ class InputAdapter: InputProtocol {
                 operationString = " ) "
             case .pi:
                 operationString = " π "
-//            case .clear:
-//                operationString = " C "
+            case .clear:
+                brain.clear()
+                calculatingString = ""
+                operationString = ""
             case .dot:
                 operationString = " . "
             case .sign:
@@ -86,11 +88,13 @@ class InputAdapter: InputProtocol {
     //        }
     //
     
-    func removeResult () {
-        calculatingString  = ""
-        brain.clear()
-    }
-
+    
+//    
+//    func removeResult () {
+//        calculatingString  = ""
+//        brain.clear()
+//    }
+    
     
     
     

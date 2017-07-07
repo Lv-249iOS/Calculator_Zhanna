@@ -51,40 +51,40 @@ class Brain: Model {
     // MARK: Calculating equation
     func calculateEquation() -> Double {
         let rpnString = reverseToPolishNotation(tokens: parseInfix(equation))
-        var stack : [String] = []
+        var arrayOfOperations : [String] = [] // String for digits
         
-        for toks in rpnString {
-            if Double(toks) != nil {
-                stack += [toks]
-            } else if toks == "cos" || toks == "sin" || toks == "√" || toks == "ln" {
-                let unaryOperation = Double(stack.removeLast())
+        for token in rpnString {
+            if Double(token) != nil {
+                arrayOfOperations += [token]
+            } else if token == "cos" || token == "sin" || token == "√" || token == "log" {
+                let unaryOperation = Double(arrayOfOperations.removeLast())
                 
                 // MARK: Performing unaryoperations
-                switch toks {
-                case "cos" : stack += [String(cos(unaryOperation!))]
-                case "sin" : stack += [String(sin(unaryOperation!))]
-                case "√" : stack += [String(sqrt(unaryOperation!))]
-                case "ln" : stack += [String(log(unaryOperation!))]
+                switch token {
+                case "cos" : arrayOfOperations += [String(cos(unaryOperation!))]
+                case "sin" : arrayOfOperations += [String(sin(unaryOperation!))]
+                case "√" : arrayOfOperations += [String(sqrt(unaryOperation!))]
+                case "log" : arrayOfOperations += [String(log(unaryOperation!))]
                 default: break
                 }
             } else {
-                let operandTwo = Double(stack.removeLast())
-                let operandOne = Double(stack.removeLast())
+                let operandTwo = Double(arrayOfOperations.removeLast())
+                let operandOne = Double(arrayOfOperations.removeLast())
                 
                 // MARK: Performing binaryoperations
-                switch toks {
-                case "+" : stack += [String(operandOne! + operandTwo!)]
-                case "-" : stack += [String(operandOne! - operandTwo!)]
-                case "×" : stack += [String(operandOne! * operandTwo!)]
-                case "÷" : stack += [String(operandOne! / operandTwo!)]
+                switch token {
+                case "+" : arrayOfOperations += [String(operandOne! + operandTwo!)]
+                case "-" : arrayOfOperations += [String(operandOne! - operandTwo!)]
+                case "×" : arrayOfOperations += [String(operandOne! * operandTwo!)]
+                case "÷" : arrayOfOperations += [String(operandOne! / operandTwo!)]
                 default: break
                 }
                 
             }
         }
-        return Double(stack.removeLast())!
+        return Double(arrayOfOperations.removeLast())!
     }
-    
+// MARK: Reverse to Polis notation
     func reverseToPolishNotation(tokens: [String]) -> [String] {
         var arrayOfOperands : [String] = [] // Array for equations
         var arrayOfOperations : [String] = [] // Array for operations
@@ -92,9 +92,10 @@ class Brain: Model {
         
         for token in tokens {
             switch token {
-            case "(" : arrayOfOperations += [token]
+            case "(" :
+                arrayOfOperations += [token]
             case ")" :
-                while arrayOfOperations.isEmpty {
+                while !arrayOfOperations.isEmpty {
                     let operation = arrayOfOperations.removeLast()
                     if operation == "(" {
                         break
@@ -130,7 +131,7 @@ class Brain: Model {
         "√" : (prec: 5, rAssoc: true),
         "cos" : (prec: 5, rAssoc: true),
         "sin" : (prec: 5, rAssoc: true),
-        "ln" : (prec: 4, rAssoc: true),
+        "log" : (prec: 4, rAssoc: true),
         "^" : (prec: 4, rAssoc: true),
         "×" : (prec: 3, rAssoc: false),
         "÷" : (prec: 3, rAssoc: false),
