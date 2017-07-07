@@ -11,63 +11,93 @@ import Foundation
 class InputAdapter: InputProtocol {
     static let shared = InputAdapter()
     let brain = Brain.shared
-    var calculatingString:String! = ""
+    var calculatingString: String! = "" // moving string
     
-
+    
+    
+    
+    
     func enterNum(_ number: Int) {
         if calculatingString == nil || calculatingString == "0" {
             calculatingString = String(number)
         } else {
             calculatingString = calculatingString + "\(number)"
-            
+            brain.enterEquation(equation: calculatingString)
         }
-        brain.enterEquation(calculatingString)
     }
     
     
     func enterUtility(_ symbol: Int) {
-        switch symbol {
-            case Operation.pls.rawValue : calculatingString = calculatingString + "+"
-            case Operation.mns.rawValue: calculatingString = calculatingString + "-"
-            case Operation.mul.rawValue: calculatingString = calculatingString + "×"
-            case Operation.div.rawValue: calculatingString = calculatingString + "÷"
-            case Operation.pow.rawValue: calculatingString = calculatingString + "^"
-            case Operation.sqrt.rawValue: calculatingString = calculatingString + "√"
-            case Operation.sin.rawValue: calculatingString = calculatingString + "sin"
-            case Operation.cos.rawValue: calculatingString = calculatingString + "cos"
-            case Operation.log.rawValue: calculatingString = calculatingString + "log"
-            case Operation.leftBracket.rawValue: calculatingString = calculatingString + "("
-            case Operation.rightBracket.rawValue: calculatingString = calculatingString + ")"
-            case Operation.sqrt.rawValue: calculatingString = calculatingString + "√"
-            case Operation.pi.rawValue: calculatingString = calculatingString + "π"
-            case Operation.equal.rawValue: calculatingString = calculatingString + "="
-            case Operation.clear.rawValue: calculatingString = calculatingString + "C"
-            case Operation.dot.rawValue: calculatingString = calculatingString + "."
-            case Operation.sign.rawValue: calculatingString = calculatingString + "±"
-        default:
-            print("Invalid input")
-        }
-  
-        if symbol == 10013 {
-            calculatingString = brain.equation
-            brain.calculate(comletion:{ result in
-                calculatingString = result
-            })
-        } else {
-//            calculatingString = calculatingString + String(symbol)
-            brain.enterEquation(calculatingString)
-        }
+        
+        if let operation = Operation(rawValue: symbol) {
+            var operationString = ""
+            
+            switch operation {
+            case .pls:
+                operationString = " + "
+            case .mns:
+                operationString = " - "
+            case .mul:
+                operationString = " × "
+            case .div:
+                operationString = " ÷ "
+            case .pow:
+                operationString = " ^ "
+            case .sqrt:
+                operationString = " √ "
+            case .sin:
+                operationString = " sin "
+            case .cos:
+                operationString = " cos "
+            case .log:
+                operationString = " log "
+            case .leftBracket:
+                operationString = " ( "
+            case .rightBracket:
+                operationString = " ) "
+            case .pi:
+                operationString = " π "
+//            case .clear:
+//                operationString = " C "
+            case .dot:
+                operationString = " . "
+            case .sign:
+                operationString = " ± "
+            case .equal:
+                brain.process()
             }
-    
-    
-    
-    
-    func removeResult () {
-        calculatingString = ""
-        brain.clear()
+            calculatingString = calculatingString + operationString
+            if operation != .equal {
+                brain.enterEquation(equation: calculatingString)
+            }
+        } else {
+            print("No such operation by tag \(symbol)")
+        }
     }
     
+    //
+    //        if calculatingString == nil || calculatingString = "0" || calculatingString.characters.count == 1 && calculatingString.characters.last == "-" {
+    //            calculatingString = "+"
+    //        } else if calculatingString.characters.last == ")" || calculatingString.characters.last! => "0" && calculatingString.characters.last! <= "9" {
+    //            calculatingString = calculatingString + " +"
+    //        } else {
+    //            calculatingString.characters.removeLast()
+    //            calculatingString = calculatingString + "+"
+    //        }
+    //
+    
+    func removeResult () {
+        calculatingString  = ""
+        brain.clear()
+    }
+
+    
+    
+    
 }
+
+
+
 
 
 

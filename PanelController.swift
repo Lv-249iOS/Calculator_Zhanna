@@ -32,11 +32,6 @@ class PanelController: UIViewController {
                 self?.touchSymbol(symbol: symbol)
             }
             
-            
-            keyboard.clearedResult = { [weak self] clearRes in
-                self?.clearResult()
-            }
-            
         }
         
     }
@@ -47,8 +42,10 @@ class PanelController: UIViewController {
     func touchSymbol(symbol: Int) {
         inputAdapter.enterUtility(symbol)
     }
+    
     func clearResult() {
         inputAdapter.removeResult()
     }
+
     
 }

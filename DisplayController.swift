@@ -15,7 +15,7 @@ class DisplayController: UIViewController {
     
     let outputAdapter = OutputAdapter.shared
     
-    func presentResult(_ result: String) {
+    func presentResult(result: String) {
         displayLabel.text = result
     }
     

@@ -14,11 +14,11 @@ protocol InputProtocol {
 }
 
 protocol OutputProtocol {
-    func presentResult(_ result: String)
+    func presentResult(result: String)
 }
 
 protocol Model {
-    func enterEquation(_ equation: String)
+    func enterEquation(equation: String)
 }
 
 
@@ -36,7 +36,7 @@ enum Operation: Int {
     case rightBracket = 10011
     case pi = 10012
     case equal = 10013
-    case clear = 10014
+//    case clear = 10014
     case dot = 10015
     case sign = 10016
 }

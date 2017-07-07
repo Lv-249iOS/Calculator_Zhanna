@@ -10,12 +10,13 @@ import Foundation
 
 class OutputAdapter: OutputProtocol {
     static let shared = OutputAdapter()
-
     var display: DisplayController?
     
     
-    func presentResult(_ result: String) {
-        display?.presentResult(result)
+    
+    
+    func presentResult(result: String) {
+        display?.presentResult(result: result)
     }
 
     

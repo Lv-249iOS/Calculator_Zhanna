@@ -15,6 +15,9 @@ class KeyboardController: UIViewController {
     var touchedSymbol: ((_ symbol: Int) -> ())?
     var clearedResult: ((_ clearRes: String) -> ())?
     
+    
+    
+    
     @IBAction func touchDigit(button: UIButton) {
         touchedDigit?(button.tag)
     }
