@@ -15,7 +15,9 @@ class KeyboardController: UIViewController {
     var touchedSymbol: ((_ symbol: Int) -> ())?
     var additionalController: AdditionalController!
     
+    @IBOutlet weak var additionalContainerView: UIView!
     
+    @IBOutlet weak var additionalWidthConstraint: NSLayoutConstraint!
     
     
     @IBAction func touchDigit(button: UIButton) {
@@ -27,32 +29,31 @@ class KeyboardController: UIViewController {
         
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+
+    }
     
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier  == "AdditionalControllerSeque",
-        let controller = segue.destination as? AdditionalController {
-        additionalController = controller
-        additionalController.touchedUtilitySymbol = { [weak self] button in
-            self?.touchSymbol(button: button)
-        
-        
-        }
-        
+    deinit {
+       NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
+    
+    func rotated() {
+        additionalContainerView.isHidden = UIDevice.current.orientation.isPortrait
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier  == "AdditionalControllerSeque",
+            let controller = segue.destination as? AdditionalController {
+            additionalController = controller
+            additionalController.touchedUtilitySymbol = { [weak self] button in
+                self?.touchSymbol(button: button)
+                
+                
+            }
         }
     }
     
-    
-    
-//    func orientationChanged() {
-//        if (UIDeviceOrientationIsLandscape(UIDevice.current.orientation)) {
-//            self.view.viewWithTag(11)?.isHidden = true
-//        } else {
-//        
-//            if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
-//                self.view.viewWithTag(11)?.isHidden = false
-//            }
-//        
-//    }
-//    
-//    }
 }

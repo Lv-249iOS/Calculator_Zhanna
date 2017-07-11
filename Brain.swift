@@ -50,7 +50,7 @@ class Brain: Model {
         for token in rpnString {
             if Double(token) != nil {
                 arrayOfOperations += [token]
-            } else if token == "cos" || token == "sin" || token == "√" || token == "log" || token == "π" || token == "e" || token == "tan"{
+            } else if token == "cos" || token == "sin" || token == "√" || token == "log" || token == "tan"{
                 let unaryOperation = Double(arrayOfOperations.removeLast())
                 
                 // MARK: Performing unaryoperations
@@ -59,8 +59,6 @@ class Brain: Model {
                 case "sin" : arrayOfOperations += [String(sin(unaryOperation!))]
                 case "√" : arrayOfOperations += [String(sqrt(unaryOperation!))]
                 case "log" : arrayOfOperations += [String(log(unaryOperation!))]
-                case "π" : arrayOfOperations += [String(M_PI)]
-                case "e" : arrayOfOperations += [String(M_E)]
                 case "tan" : arrayOfOperations += [String(tan(unaryOperation!))]
                     
                 default: break
@@ -75,6 +73,7 @@ class Brain: Model {
                 case "-" : arrayOfOperations += [String(operandOne! - operandTwo!)]
                 case "×" : arrayOfOperations += [String(operandOne! * operandTwo!)]
                 case "÷" : arrayOfOperations += [String(operandOne! / operandTwo!)]
+                case "^" : arrayOfOperations += [String(pow(operandOne!, operandTwo!))]
                 default: break
                 }
                 

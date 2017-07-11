@@ -40,49 +40,46 @@ class InputAdapter: InputProtocol {
     func enterUtility(_ symbol: Int) {
         
         if let operation = Operation(rawValue: symbol) {
-            var operationString = ""
-            
             switch operation {
             case .pls:
-                operationString = " + "
+                pressPlus()
             case .mns:
-                operationString = " - "
+                 pressMin()
             case .mul:
-                operationString = " × "
+                 pressMul()
             case .div:
-                operationString = " ÷ "
+                pressDiv()
             case .pow:
-                operationString = " ^ "
+                 pressPow()
             case .sqrt:
-                operationString = " √ "
+                 pressSqrt()
             case .sin:
-                operationString = " sin "
+                pressSin()
             case .cos:
-                operationString = " cos "
+                 pressCos()
             case .log:
-                operationString = " log "
+                 pressLog()
             case .leftBracket:
-                operationString = " ( "
+                calculatingString = calculatingString + " ( "
             case .rightBracket:
-                operationString = " ) "
+                calculatingString = calculatingString + " ) "
             case .pi:
-                operationString = " π "
+                calculatingString = calculatingString + " π "
             case .clear:
                 brain.clear()
                 calculatingString = ""
-                operationString = ""
+                calculatingString = calculatingString + ""
             case .dot:
-                operationString = "."
+                 pressDot()
             case .sign:
-                operationString = " ± "
+                calculatingString = calculatingString + " ± "
             case .equal:
                 brain.process()
             case .e:
-                operationString = " e "
+                calculatingString = calculatingString + " e "
             case .tan:
-                operationString = " tan "
+                pressTan()
             }
-            calculatingString = calculatingString + operationString
             if operation != .equal {
                 brain.enterEquation(equation: calculatingString)
             }
@@ -91,19 +88,18 @@ class InputAdapter: InputProtocol {
         }
     }
     
-    func pressDigit() {
-        
-    }
-    
     func pressPlus() {
-        if calculatingString == nil || calculatingString == "0" || calculatingString.characters.count == 1 && calculatingString.characters.last == "-" {
+        if calculatingString == nil
+            || calculatingString == "0"
+            || calculatingString == ""
+            || (calculatingString.characters.count == 1 && calculatingString.characters.last == "-")  {
             calculatingString = "+"
             
         } else if calculatingString.characters.last == ")" {
             calculatingString = calculatingString + " +"
             
         } else if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
-            calculatingString = calculatingString + " +"
+            calculatingString = calculatingString + " + "
             
         } else {
             calculatingString.characters.removeLast()
@@ -113,7 +109,7 @@ class InputAdapter: InputProtocol {
     
     
     func pressMin() {
-        if calculatingString == nil || calculatingString == "0" || calculatingString.characters.count == 1 && calculatingString.characters.last == "+" {
+        if calculatingString == nil || calculatingString == "0" || calculatingString == "" || calculatingString.characters.count == 1 && calculatingString.characters.last == "+" {
             calculatingString = calculatingString + "-"
         } else if calculatingString.characters.last == ")" {
             calculatingString = calculatingString + " )"
@@ -134,7 +130,7 @@ class InputAdapter: InputProtocol {
                 calculatingString = calculatingString + " ×"
             } else {
                 calculatingString.characters.removeLast()
-                calculatingString = calculatingString + "×"
+                calculatingString = calculatingString + " × "
             }
         }
     }
@@ -185,10 +181,22 @@ class InputAdapter: InputProtocol {
         calculatingString == nil || calculatingString == "0" ? (calculatingString = "tan") : (calculatingString = calculatingString + "tan")
     }
     
-
-
+    func pressLog() {
+    calculatingString == nil || calculatingString == "0" ? (calculatingString = "log") : (calculatingString = calculatingString + "log")
+    }
     
-    
+//    func pressLeftBracket() {
+//        if calculatingString == nil || calculatingString == "0" {
+//            calculatingString = "("
+//        } else if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" ||
+//            calculatingString = ")" {
+//            calculatingString = "× ("
+//            
+//        } else {
+//            calculatingString = calculatingString + " × ("
+//        }
+//    }
+//    
     func pressDot() {
         if calculatingString == nil || calculatingString == "0" {
             calculatingString = "0."
@@ -205,14 +213,14 @@ class InputAdapter: InputProtocol {
     
 }
     
-    func pressPi() {
-        calculatingString == nil || calculatingString == "0" ? (calculatingString = "π") : (calculatingString = calculatingString + "π")
-        
-    }
-
-    func pressE() {
-        calculatingString == nil || calculatingString == "0" ? (calculatingString = "e") : (calculatingString = calculatingString + "e")
-        
-    }
+//    func pressPi() {
+//        calculatingString == nil || calculatingString == "0" ? (calculatingString = "π") : (calculatingString = calculatingString + "π")
+//        
+//    }
+//
+//    func pressE() {
+//        calculatingString == nil || calculatingString == "0" ? (calculatingString = "e") : (calculatingString = calculatingString + "e")
+//        
+//    }
 
 }

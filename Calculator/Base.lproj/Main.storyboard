@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dP8-4P-gVg">
+                            <containerView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="800" translatesAutoresizingMaskIntoConstraints="NO" id="dP8-4P-gVg">
                                 <rect key="frame" x="0.0" y="20" width="320" height="80"/>
                                 <connections>
                                     <segue destination="woe-7N-f34" kind="embed" identifier="DisplayControllerSeque" id="y5F-H3-3M8"/>
@@ -39,9 +38,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dv5-6Y-swc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5CX-Pf-bif"/>
+                            <constraint firstItem="dP8-4P-gVg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8Xm-xX-m0m"/>
                             <constraint firstItem="dv5-6Y-swc" firstAttribute="top" secondItem="dP8-4P-gVg" secondAttribute="bottom" id="8jG-0T-2Fb"/>
                             <constraint firstItem="dP8-4P-gVg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="BLo-fk-Oee"/>
-                            <constraint firstItem="dP8-4P-gVg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Ywj-dj-r9y"/>
                             <constraint firstItem="dP8-4P-gVg" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="bUj-qm-VPi"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dv5-6Y-swc" secondAttribute="bottom" id="bql-3b-f4N"/>
                             <constraint firstItem="dv5-6Y-swc" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="dcv-vP-wTE"/>
@@ -84,7 +83,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="55.5" height="93"/>
                                                         <color key="backgroundColor" red="0.38550682289861599" green="0.57427175039414535" blue="0.57486039400100708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="30"/>
-                                                        <state key="normal" title="C"/>
+                                                        <state key="normal" title="C">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="touchSymbolWithButton:" destination="deF-1c-VbJ" eventType="touchUpInside" id="ZA9-h0-cV0"/>
                                                         </connections>
@@ -93,7 +94,9 @@
                                                         <rect key="frame" x="56.5" y="0.0" width="55" height="93"/>
                                                         <color key="backgroundColor" red="0.38550682289999999" green="0.5742717504" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <state key="normal" title="π"/>
+                                                        <state key="normal" title="π">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="touchSymbolWithButton:" destination="deF-1c-VbJ" eventType="touchUpInside" id="7bC-I5-uqe"/>
                                                         </connections>
@@ -102,7 +105,9 @@
                                                         <rect key="frame" x="112.5" y="0.0" width="55.5" height="93"/>
                                                         <color key="backgroundColor" red="0.38550682289999999" green="0.5742717504" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <state key="normal" title="e"/>
+                                                        <state key="normal" title="e">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="touchSymbolWithButton:" destination="deF-1c-VbJ" eventType="touchUpInside" id="oaz-Ko-9pP"/>
                                                         </connections>
@@ -111,7 +116,9 @@
                                                         <rect key="frame" x="169" y="0.0" width="55" height="93"/>
                                                         <color key="backgroundColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <state key="normal" title="÷"/>
+                                                        <state key="normal" title="÷">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="touchSymbolWithButton:" destination="deF-1c-VbJ" eventType="touchUpInside" id="f1P-b5-Wv7"/>
                                                         </connections>
@@ -152,7 +159,9 @@
                                                         <rect key="frame" x="169" y="0.0" width="55" height="92.5"/>
                                                         <color key="backgroundColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <state key="normal" title="×"/>
+                                                        <state key="normal" title="×">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="touchSymbolWithButton:" destination="deF-1c-VbJ" eventType="touchUpInside" id="caG-7D-Gue"/>
                                                         </connections>
@@ -193,7 +202,9 @@
                                                         <rect key="frame" x="169" y="0.0" width="55" height="93"/>
                                                         <color key="backgroundColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <state key="normal" title="+"/>
+                                                        <state key="normal" title="+">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="touchSymbolWithButton:" destination="deF-1c-VbJ" eventType="touchUpInside" id="Xb5-Tm-cOW"/>
                                                         </connections>
@@ -234,7 +245,9 @@
                                                         <rect key="frame" x="169" y="0.0" width="55" height="92.5"/>
                                                         <color key="backgroundColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <state key="normal" title="-"/>
+                                                        <state key="normal" title="-">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="touchSymbolWithButton:" destination="deF-1c-VbJ" eventType="touchUpInside" id="nkG-sW-rh7"/>
                                                         </connections>
@@ -257,7 +270,9 @@
                                                         <rect key="frame" x="75" y="0.0" width="74" height="93"/>
                                                         <color key="backgroundColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <state key="normal" title="."/>
+                                                        <state key="normal" title=".">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="touchSymbolWithButton:" destination="deF-1c-VbJ" eventType="touchUpInside" id="G8r-Io-VmK"/>
                                                         </connections>
@@ -266,7 +281,9 @@
                                                         <rect key="frame" x="150" y="0.0" width="74" height="93"/>
                                                         <color key="backgroundColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <state key="normal" title="="/>
+                                                        <state key="normal" title="=">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="touchSymbolWithButton:" destination="deF-1c-VbJ" eventType="touchUpInside" id="lDA-hp-isF"/>
                                                         </connections>
@@ -288,6 +305,10 @@
                             <constraint firstItem="qMN-V0-5s7" firstAttribute="top" secondItem="rwH-Bf-msj" secondAttribute="bottom" id="uX6-Es-dTb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="additionalContainerView" destination="aoU-oj-NtV" id="xPW-e6-FdL"/>
+                        <outlet property="additionalWidthConstraint" destination="Z2x-6R-pNM" id="nEw-nM-zca"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KFF-3H-XZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -332,6 +353,10 @@
         <scene sceneID="n0V-PV-bic">
             <objects>
                 <viewController id="Gli-Lh-VsK" customClass="AdditionalController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BT9-qP-j2D"/>
+                        <viewControllerLayoutGuide type="bottom" id="nro-WE-TPC"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="x1e-lm-kz1">
                         <rect key="frame" x="0.0" y="0.0" width="96" height="468"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
