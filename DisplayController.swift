@@ -24,7 +24,6 @@ class DisplayController: UIViewController {
         super.viewDidLoad()
         
         
-        
         outputAdapter.display = self
     }
 

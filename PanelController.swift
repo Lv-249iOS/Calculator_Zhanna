@@ -34,7 +34,9 @@ class PanelController: UIViewController {
             
         }
         
+        
     }
+    
     func touchDigit(digit: Int) {
         inputAdapter.enterNum(digit)
     }
@@ -45,4 +47,7 @@ class PanelController: UIViewController {
     
     
     
+    
+    
 }
+

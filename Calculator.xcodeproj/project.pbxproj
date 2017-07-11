@@ -20,6 +20,7 @@
 		20A6ED981F03F2D6006C50ED /* InputAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6ED971F03F2D6006C50ED /* InputAdapter.swift */; };
 		20A6ED9A1F03F2F0006C50ED /* OutputAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6ED991F03F2F0006C50ED /* OutputAdapter.swift */; };
 		20A6ED9C1F03F305006C50ED /* Brain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6ED9B1F03F305006C50ED /* Brain.swift */; };
+		20B9BF081F14DCDA00F6770F /* AdditionalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9BF071F14DCDA00F6770F /* AdditionalController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		20A6ED971F03F2D6006C50ED /* InputAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputAdapter.swift; path = ../InputAdapter.swift; sourceTree = "<group>"; };
 		20A6ED991F03F2F0006C50ED /* OutputAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OutputAdapter.swift; path = ../OutputAdapter.swift; sourceTree = "<group>"; };
 		20A6ED9B1F03F305006C50ED /* Brain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Brain.swift; path = ../Brain.swift; sourceTree = "<group>"; };
+		20B9BF071F14DCDA00F6770F /* AdditionalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdditionalController.swift; path = Calculator/AdditionalController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				204CBD341F04113D0049DDCB /* KeyboardController.swift */,
 				204CBD361F0411470049DDCB /* PanelController.swift */,
 				204CBD321F0411390049DDCB /* DisplayController.swift */,
+				20B9BF071F14DCDA00F6770F /* AdditionalController.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -312,6 +315,7 @@
 				204CBD371F0411470049DDCB /* PanelController.swift in Sources */,
 				20A6ED9A1F03F2F0006C50ED /* OutputAdapter.swift in Sources */,
 				20A6ED5F1F03E6DB006C50ED /* AppDelegate.swift in Sources */,
+				20B9BF081F14DCDA00F6770F /* AdditionalController.swift in Sources */,
 				204CBD351F04113D0049DDCB /* KeyboardController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

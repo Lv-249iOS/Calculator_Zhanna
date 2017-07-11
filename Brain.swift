@@ -18,18 +18,12 @@ class Brain: Model {
         outputAdapter.presentResult(result: equation)
     }
     
-    
+    // MARK: clearing result from display
     func clear() {
         equation = ""
         outputAdapter.presentResult(result: "0")
     }
 
-    
-    
-    
-    func presentCalculatingString() {
-        
-    }
     
     
     // MARK: processing equation and sending result to outputAdapter
@@ -56,7 +50,7 @@ class Brain: Model {
         for token in rpnString {
             if Double(token) != nil {
                 arrayOfOperations += [token]
-            } else if token == "cos" || token == "sin" || token == "√" || token == "log" {
+            } else if token == "cos" || token == "sin" || token == "√" || token == "log" || token == "π" || token == "e" || token == "tan"{
                 let unaryOperation = Double(arrayOfOperations.removeLast())
                 
                 // MARK: Performing unaryoperations
@@ -65,6 +59,10 @@ class Brain: Model {
                 case "sin" : arrayOfOperations += [String(sin(unaryOperation!))]
                 case "√" : arrayOfOperations += [String(sqrt(unaryOperation!))]
                 case "log" : arrayOfOperations += [String(log(unaryOperation!))]
+                case "π" : arrayOfOperations += [String(M_PI)]
+                case "e" : arrayOfOperations += [String(M_E)]
+                case "tan" : arrayOfOperations += [String(tan(unaryOperation!))]
+                    
                 default: break
                 }
             } else {
@@ -131,6 +129,7 @@ class Brain: Model {
         "√" : (prec: 5, rAssoc: true),
         "cos" : (prec: 5, rAssoc: true),
         "sin" : (prec: 5, rAssoc: true),
+        "tan" : (prec: 5, rAssoc: true),
         "log" : (prec: 4, rAssoc: true),
         "^" : (prec: 4, rAssoc: true),
         "×" : (prec: 3, rAssoc: false),

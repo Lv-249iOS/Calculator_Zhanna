@@ -39,5 +39,7 @@ enum Operation: Int {
     case clear = 10014
     case dot = 10015
     case sign = 10016
+    case e = 10017
+    case tan = 10018
 }
 
