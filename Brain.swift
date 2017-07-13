@@ -53,6 +53,9 @@ class Brain: Model {
             } else if token == "cos" || token == "sin" || token == "√" || token == "log" || token == "tan"{
                 let unaryOperation = Double(arrayOfOperations.removeLast())
                 
+           
+                
+                
                 // MARK: Performing unaryoperations
                 switch token {
                 case "cos" : arrayOfOperations += [String(cos(unaryOperation!))]

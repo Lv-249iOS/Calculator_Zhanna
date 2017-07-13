@@ -64,7 +64,8 @@ class InputAdapter: InputProtocol {
             case .rightBracket:
                 calculatingString = calculatingString + " ) "
             case .pi:
-                calculatingString = calculatingString + " π "
+                pressPi()
+                brain.enterEquation(equation: calculatingString )
             case .clear:
                 brain.clear()
                 calculatingString = ""
@@ -76,7 +77,7 @@ class InputAdapter: InputProtocol {
             case .equal:
                 brain.process()
             case .e:
-                calculatingString = calculatingString + " e "
+                pressE()
             case .tan:
                 pressTan()
             }
@@ -185,31 +186,29 @@ class InputAdapter: InputProtocol {
     }
     
     
+//    func pressLeftBracket() {
+//        if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
+//            calculatingString = " ( "
+//        } else if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" || calculatingString == ")" {
+//            calculatingString = " × ("
+//        } else {
+//            calculatingString = calculatingString + " ("
+//        }
+//        
+//    }
+//        
+//        func RightBracket() {
+//            if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
+//                calculatingString = " ) "
+//            } else if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" || calculatingString == ")" {
+//                calculatingString = " ) × "
+//            } else {
+//                calculatingString = calculatingString + " ) "
+//                }
+//            
+//            }
+//
     
-    
-    func pressLeftBracket() {
-        if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
-            calculatingString = " ( "
-        } else if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" || calculatingString == ")" {
-            calculatingString = " × ("
-        } else {
-            calculatingString = calculatingString + " ("
-        }
-        
-    }
-        
-        func RightBracket() {
-            if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
-                calculatingString = " ) "
-            } else if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" || calculatingString == ")" {
-                calculatingString = " ) × "
-            } else {
-                calculatingString = calculatingString + " ) "
-                }
-            
-            }
-
-            
             
     
     func pressDot() {
@@ -228,14 +227,14 @@ class InputAdapter: InputProtocol {
     
 }
     
-//    func pressPi() {
-//        calculatingString == nil || calculatingString == "0" ? (calculatingString = "π") : (calculatingString = calculatingString + "π")
-//        
-//    }
-//
-//    func pressE() {
-//        calculatingString == nil || calculatingString == "0" ? (calculatingString = "e") : (calculatingString = calculatingString + "e")
-//        
-//    }
+    func pressPi() {
+        calculatingString == nil || calculatingString == "0" || calculatingString == "" ? (calculatingString = String(Double.pi) ) : (calculatingString = calculatingString + String(Double.pi))
+        
+    }
+
+    func pressE() {
+        calculatingString == nil || calculatingString == "0" ? (calculatingString = String(M_E)) : (calculatingString = calculatingString + String(M_E))
+        
+    }
 
 }
