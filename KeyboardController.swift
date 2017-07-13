@@ -20,29 +20,57 @@ class KeyboardController: UIViewController {
     @IBOutlet weak var additionalWidthConstraint: NSLayoutConstraint!
     
     
-    @IBAction func touchDigit(button: UIButton) {
-        touchedDigit?(button.tag)
-    }
-    
-    @IBAction func touchSymbol (button : UIButton) {
-        touchedSymbol?(button.tag)
-        
-    }
+    // MARK: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-
+        
     }
     
     deinit {
-       NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
+    
+    // MARK: IBActions
+    
+    @IBAction func touchDigit(button: UIButton) {
+        touchedDigit?(button.tag)
+        _touched(button: button)
+    }
+    
+    @IBAction func touchSymbol (button : UIButton) {
+        touchedSymbol?(button.tag)
+        _touched(button: button)
+    }
+    
+    private func _touched(button: UIButton) {
+//        button.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+//        button.layer.borderWidth = 2.0
+//        button.layer.borderColor = UIColor.white.cgColor
+//        button.layer.cornerRadius = 5.0
+//        button.layer.masksToBounds = true
+        button.layer.backgroundColor = UIColor.gray.cgColor
+        
+        // learn the difference between FRAME and BOUNDS
+        
+        UIView.animate(withDuration: 0.19, animations: {
+            button.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+            button.layer.backgroundColor = UIColor.red.cgColor
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.34) {
+                button.transform = CGAffineTransform.identity
+                button.layer.backgroundColor = UIColor.gray.cgColor
+            }
+        })
     }
     
     func rotated() {
         additionalContainerView.isHidden = UIDevice.current.orientation.isPortrait
     }
+    
+    // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier  == "AdditionalControllerSeque",

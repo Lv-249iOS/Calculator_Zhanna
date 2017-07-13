@@ -76,7 +76,9 @@ class InputAdapter: InputProtocol {
             case .sign:
                 calculatingString = calculatingString + " ± "
             case .equal:
-                brain.process()
+                if calculatingString.characters.count > 0 {
+                    brain.process()
+                }
             case .e:
                 pressE()
             case .tan:
