@@ -60,12 +60,11 @@ class InputAdapter: InputProtocol {
             case .log:
                  pressLog()
             case .leftBracket:
-                calculatingString = calculatingString + " ( "
+               pressLeftBracket()
             case .rightBracket:
-                calculatingString = calculatingString + " ) "
+                pressRightBracket()
             case .pi:
                 pressPi()
-                brain.enterEquation(equation: calculatingString )
             case .clear:
                 brain.clear()
                 calculatingString = ""
@@ -89,6 +88,7 @@ class InputAdapter: InputProtocol {
         }
     }
     
+    // MARK: Validation of operations
     func pressPlus() {
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" || (calculatingString.characters.count == 1 && calculatingString.characters.last == "-")  {
             calculatingString = "+"
@@ -150,7 +150,7 @@ class InputAdapter: InputProtocol {
     
     
     func pressPow() {
-        if (calculatingString != nil && calculatingString != "0") && calculatingString.characters.count >= 1 {
+        if (calculatingString != nil && calculatingString != "0") && calculatingString.characters.count >= 0 {
             if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
                 calculatingString = calculatingString + " ^ "
                 
@@ -186,30 +186,34 @@ class InputAdapter: InputProtocol {
     }
     
     
-//    func pressLeftBracket() {
-//        if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
-//            calculatingString = " ( "
-//        } else if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" || calculatingString == ")" {
-//            calculatingString = " × ("
-//        } else {
-//            calculatingString = calculatingString + " ("
-//        }
-//        
-//    }
-//        
-//        func RightBracket() {
-//            if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
-//                calculatingString = " ) "
-//            } else if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" || calculatingString == ")" {
-//                calculatingString = " ) × "
-//            } else {
-//                calculatingString = calculatingString + " ) "
-//                }
-//            
-//            }
-//
+    func pressLeftBracket() {
+        if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
+            calculatingString = "( "
+        } else if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" || calculatingString.characters.last! == ")"  {
+            calculatingString = calculatingString + " × ( "
+        } else {
+            calculatingString = calculatingString + " ( "
+        }
+        
+    }
     
-            
+        
+    func pressRightBracket() {
+        if (calculatingString != nil && calculatingString != "0" && calculatingString != "") {
+            if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
+                calculatingString = calculatingString + " )"
+            } else if calculatingString.characters.last! == ")" {
+                calculatingString = " × " + calculatingString
+            } else {
+               calculatingString = "Something went wrong"
+            }
+        }
+    }
+    
+    
+
+    
+    
     
     func pressDot() {
         if calculatingString == nil || calculatingString == "0" {
@@ -233,7 +237,7 @@ class InputAdapter: InputProtocol {
     }
 
     func pressE() {
-        calculatingString == nil || calculatingString == "0" ? (calculatingString = String(M_E)) : (calculatingString = calculatingString + String(M_E))
+        calculatingString == nil || calculatingString == "0" || calculatingString == "" ? (calculatingString = String(M_E)) : (calculatingString = calculatingString + String(M_E))
         
     }
 
