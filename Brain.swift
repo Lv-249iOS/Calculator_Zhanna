@@ -58,11 +58,16 @@ class Brain: Model {
                 
                 // MARK: Performing unaryoperations
                 switch token {
-                case "cos" : arrayOfOperations += [String(cos(unaryOperation!))]
-                case "sin" : arrayOfOperations += [String(sin(unaryOperation!))]
-                case "√" : arrayOfOperations += [String(sqrt(unaryOperation!))]
-                case "log" : arrayOfOperations += [String(log(unaryOperation!))]
-                case "tan" : arrayOfOperations += [String(tan(unaryOperation!))]
+                case "cos":
+                    arrayOfOperations += [String(cos(unaryOperation!))]
+                case "sin":
+                    arrayOfOperations += [String(sin(unaryOperation!))]
+                case "√":
+                    arrayOfOperations += [String(sqrt(unaryOperation!))]
+                case "log":
+                    arrayOfOperations += [String(log(unaryOperation!))]
+                case "tan":
+                    arrayOfOperations += [String(tan(unaryOperation!))]
                     
                 default: break
                 }
@@ -72,11 +77,16 @@ class Brain: Model {
                 
                 // MARK: Performing binaryoperations
                 switch token {
-                case "+" : arrayOfOperations += [String(operandOne! + operandTwo!)]
-                case "-" : arrayOfOperations += [String(operandOne! - operandTwo!)]
-                case "×" : arrayOfOperations += [String(operandOne! * operandTwo!)]
-                case "÷" : arrayOfOperations += [String(operandOne! / operandTwo!)]
-                case "^" : arrayOfOperations += [String(pow(operandOne!, operandTwo!))]
+                case "+":
+                    arrayOfOperations += [String(operandOne! + operandTwo!)]
+                case "-":
+                    arrayOfOperations += [String(operandOne! - operandTwo!)]
+                case "×":
+                    arrayOfOperations += [String(operandOne! * operandTwo!)]
+                case "÷":
+                    arrayOfOperations += [String(operandOne! / operandTwo!)]
+                case "^":
+                    arrayOfOperations += [String(pow(operandOne!, operandTwo!))]
                 default: break
                 }
                 

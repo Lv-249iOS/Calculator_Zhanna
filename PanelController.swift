@@ -42,7 +42,8 @@ class PanelController: UIViewController {
     }
     
     func touchSymbol(symbol: Int) {
-        inputAdapter.enterUtility(symbol)
+        let operation = Operation(rawValue: symbol)
+        inputAdapter.enterUtility(operation!)
     }
     
     

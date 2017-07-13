@@ -20,7 +20,8 @@ class InputAdapter: InputProtocol {
     func enterNum(_ number: Int) {
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
             calculatingString = String(number)
-            
+        } else if calculatingString.characters.last! == ")" {
+            calculatingString =  calculatingString + " × " + "\(number)"
         } else if calculatingString.characters.last == "." || calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
             calculatingString = calculatingString + "\(number)"
             
@@ -31,16 +32,17 @@ class InputAdapter: InputProtocol {
             calculatingString = calculatingString + "\(number)"
 
         }
+        
         brain.enterEquation(equation: calculatingString)
     }
 
 
 
     
-    func enterUtility(_ symbol: Int) {
+    func enterUtility(_ symbol: Operation) {
         
-        if let operation = Operation(rawValue: symbol) {
-            switch operation {
+        
+            switch symbol {
             case .pls:
                 pressPlus()
             case .mns:
@@ -80,13 +82,12 @@ class InputAdapter: InputProtocol {
             case .tan:
                 pressTan()
             }
-            if operation != .equal {
+            if symbol != .equal {
                 brain.enterEquation(equation: calculatingString)
             }
-        } else {
-            print("No such operation by tag \(symbol)")
+       
         }
-    }
+    
     
     // MARK: Validation of operations
     func pressPlus() {
@@ -199,13 +200,16 @@ class InputAdapter: InputProtocol {
     
         
     func pressRightBracket() {
-        if (calculatingString != nil && calculatingString != "0" && calculatingString != "") {
+       // calculatingString = calculatingString + ")"
+        if calculatingString != nil && calculatingString != "0" && calculatingString != "" {
             if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
                 calculatingString = calculatingString + " )"
+                
             } else if calculatingString.characters.last! == ")" {
                 calculatingString = " × " + calculatingString
+                
             } else {
-               calculatingString = "Something went wrong"
+               calculatingString = calculatingString + " )"
             }
         }
     }
