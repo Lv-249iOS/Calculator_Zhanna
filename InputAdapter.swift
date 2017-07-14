@@ -22,11 +22,10 @@ class InputAdapter: InputProtocol {
             calculatingString = String(number)
         } else if calculatingString.characters.last! == ")" {
             calculatingString =  calculatingString + " × " + "\(number)"
-        } else if calculatingString.characters.last == "." || calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
+            
+        } else if calculatingString.characters.last == "." || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || (calculatingString.characters.count == 1 && (calculatingString.characters.last == "+" || calculatingString.characters.last == "-")) {
             calculatingString = calculatingString + "\(number)"
             
-        } else if calculatingString.characters.count == 1 && (calculatingString.characters.last == "+" || calculatingString.characters.last == "-") {
-            calculatingString = calculatingString + "\(number)"
             
         } else {
             calculatingString = calculatingString + " \(number)"
@@ -76,7 +75,7 @@ class InputAdapter: InputProtocol {
             case .sign:
                 calculatingString = calculatingString + " ± "
             case .equal:
-                if calculatingString.characters.count > 0 {
+                if pressEqual() {
                     brain.process()
                 }
             case .e:
@@ -126,15 +125,12 @@ class InputAdapter: InputProtocol {
     
     func pressMul() {
         if (calculatingString != nil && calculatingString.characters.count > 0) {
-            if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
-                calculatingString = calculatingString + " × "
+            if (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || calculatingString.characters.last == ")" {
+                calculatingString = calculatingString + "×"
                 
-            } else if calculatingString.characters.last == ")" {
-                calculatingString = calculatingString + " ×"
-                
-            } else {
+            } else if calculatingString.characters.last != "(" {
                 calculatingString.characters.removeLast()
-                calculatingString = calculatingString + " × "
+                calculatingString = calculatingString + "×"
             }
         }
     }
@@ -218,19 +214,23 @@ class InputAdapter: InputProtocol {
     }
     
     
-
+    func pressEqual() -> Bool {
+        return calculatingString.characters.last == ")" || calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9"
+        
+    }
     
     
     
     func pressDot() {
-        if calculatingString == nil || calculatingString == "0" {
+        if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
             calculatingString = "0."
             
         } else if calculatingString.characters.last != "." {
+            
         if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
             calculatingString! += "."
             
-        } else {
+        } else if calculatingString.characters.last == "(" {
          calculatingString = calculatingString + "0."
         
         }
