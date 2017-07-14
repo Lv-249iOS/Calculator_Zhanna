@@ -16,7 +16,7 @@ class InputAdapter: InputProtocol {
     
     
     
-    
+    // MARK: ENTER NUMBERS(DIGITS):
     func enterNum(_ number: Int) {
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
             calculatingString = String(number)
@@ -37,7 +37,7 @@ class InputAdapter: InputProtocol {
     }
 
 
-
+    // MARK: ENTER SYMBOLS(OPERATIONS):
     
     func enterUtility(_ symbol: Operation) {
         
@@ -92,33 +92,34 @@ class InputAdapter: InputProtocol {
     
     
     // MARK: Validation of operations
+    
+    
     func pressPlus() {
+        
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" || (calculatingString.characters.count == 1 && calculatingString.characters.last == "-")  {
             calculatingString = "+"
             
-        } else if calculatingString.characters.last == ")" {
-            calculatingString = calculatingString + " + "
+        } else if (calculatingString.characters.last == ")" || calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9")  ||  calculatingString.characters.last! == "." {
+            calculatingString = calculatingString + " +"
+
             
-        } else if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
-            calculatingString = calculatingString + " + "
-            
-        } else {
+        } else if calculatingString.characters.last != "(" {
             calculatingString.characters.removeLast()
-            calculatingString = calculatingString + "+"
+            calculatingString = calculatingString + " + "
         }
     }
     
+
+
     
     func pressMin() {
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" || (calculatingString.characters.count == 1 && calculatingString.characters.last == "+") {
             calculatingString = "-"
-        } else if calculatingString.characters.last == ")" {
-            calculatingString = calculatingString + " - "
-            
-        } else if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
-            calculatingString = calculatingString + " - "
-        } else {
-            calculatingString.characters.removeLast()
+        } else if calculatingString.characters.last == ")" || calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
+            calculatingString = calculatingString + " -"
+        
+        } else  if calculatingString.characters.last != "(" {
+        calculatingString.characters.removeLast()
             calculatingString = calculatingString + " - "
         }
     }

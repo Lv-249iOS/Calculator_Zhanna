@@ -61,7 +61,7 @@ class KeyboardController: UIViewController {
         }, completion: { _ in
             UIView.animate(withDuration: 0.34) {
                 button.transform = CGAffineTransform.identity
-                button.layer.backgroundColor = UIColor.gray.cgColor
+                button.layer.backgroundColor = UIColor.clear.cgColor
             }
         })
     }
