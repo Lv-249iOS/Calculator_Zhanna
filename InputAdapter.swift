@@ -29,7 +29,7 @@ class InputAdapter: InputProtocol {
             calculatingString = calculatingString + "\(number)"
             
         } else {
-            calculatingString = calculatingString + "\(number)"
+            calculatingString = calculatingString + " \(number)"
 
         }
         
@@ -105,7 +105,7 @@ class InputAdapter: InputProtocol {
             
         } else if calculatingString.characters.last != "(" {
             calculatingString.characters.removeLast()
-            calculatingString = calculatingString + " + "
+            calculatingString = calculatingString + "+"
         }
     }
     
@@ -120,7 +120,7 @@ class InputAdapter: InputProtocol {
         
         } else  if calculatingString.characters.last != "(" {
         calculatingString.characters.removeLast()
-            calculatingString = calculatingString + " - "
+            calculatingString = calculatingString + "-"
         }
     }
     
