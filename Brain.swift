@@ -12,6 +12,8 @@ class Brain: Model {
     static let shared = Brain()
     let outputAdapter = OutputAdapter.shared
     var equation: String!
+    var calculatingString: String?
+    
     
     func enterEquation(equation: String) {
         self.equation = equation
@@ -23,7 +25,7 @@ class Brain: Model {
         equation = ""
         outputAdapter.presentResult(result: "0")
     }
-
+    
     
     
     // MARK: processing equation and sending result to outputAdapter
@@ -50,12 +52,10 @@ class Brain: Model {
         for token in rpnString {
             if Double(token) != nil {
                 arrayOfOperations += [token]
-            } else if token == "cos" || token == "sin" || token == "√" || token == "log" || token == "tan"{
+                
+            } else if !arrayOfOperations.isEmpty && (token == "cos" || token == "sin" || token == "√" || token == "log" || token == "tan") {
                 let unaryOperation = Double(arrayOfOperations.removeLast())
-                
-           
-                
-                
+
                 // MARK: Performing unaryoperations
                 switch token {
                 case "cos":
@@ -72,29 +72,36 @@ class Brain: Model {
                 default: break
                 }
             } else {
-                let operandTwo = Double(arrayOfOperations.removeLast())
-                let operandOne = Double(arrayOfOperations.removeLast())
                 
-                // MARK: Performing binaryoperations
-                switch token {
-                case "+":
-                    arrayOfOperations += [String(operandOne! + operandTwo!)]
-                case "-":
-                    arrayOfOperations += [String(operandOne! - operandTwo!)]
-                case "×":
-                    arrayOfOperations += [String(operandOne! * operandTwo!)]
-                case "÷":
-                    arrayOfOperations += [String(operandOne! / operandTwo!)]
-                case "^":
-                    arrayOfOperations += [String(pow(operandOne!, operandTwo!))]
-                default: break
+                if arrayOfOperations.count > 1 {
+                    if let operandTwo = Double(arrayOfOperations.removeLast()), let operandOne = Double(arrayOfOperations.removeLast()) {
+                        
+                        // MARK: Performing binaryoperations
+                        switch token {
+                        case "+":
+                            arrayOfOperations += [String(operandOne + operandTwo)]
+                        case "-":
+                            arrayOfOperations += [String(operandOne - operandTwo)]
+                        case "×":
+                            arrayOfOperations += [String(operandOne * operandTwo)]
+                        case "÷":
+                            arrayOfOperations += [String(operandOne / operandTwo)]
+                        case "^":
+                            arrayOfOperations += [String(pow(operandOne, operandTwo))]
+                        default: break
+                        }
+                        
+                    }
+                } else {
+//                calculatingString = "(Something went wrong)"
+                    return 0.0
                 }
-                
             }
         }
         return Double(arrayOfOperations.removeLast())!
     }
-// MARK: Reverse to Polis notation
+    
+    // MARK: Reverse to Polis notation
     func reverseToPolishNotation(tokens: [String]) -> [String] {
         var arrayOfOperands : [String] = [] // Array for equations
         var arrayOfOperations : [String] = [] // Array for operations

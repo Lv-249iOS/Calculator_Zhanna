@@ -171,7 +171,7 @@ class InputAdapter: InputProtocol {
         } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
             calculatingString = calculatingString + " × √"
         } else {
-            calculatingString = calculatingString + "√"
+            calculatingString = calculatingString + " √"
         }
     }
     
@@ -283,11 +283,11 @@ class InputAdapter: InputProtocol {
     // MARK: Checking constatnt Pi
     func pressPi() {
         if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
-            calculatingString = String(Double.pi)
+            calculatingString = "\(Double.pi)"
         } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
-            calculatingString = calculatingString + " × " + String(Double.pi)
+            calculatingString = calculatingString + " × \(Double.pi)"
         } else {
-            calculatingString = calculatingString + String(Double.pi)
+            calculatingString = calculatingString + " \(Double.pi)"
         }
     }
 
@@ -295,11 +295,11 @@ class InputAdapter: InputProtocol {
     // MARK: Checking constant E
     func pressE() {
         if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
-            calculatingString = String(M_E)
+            calculatingString = "\(M_E)"
         } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
-            calculatingString = calculatingString + " × " + String(M_E)
+            calculatingString = calculatingString + " × \(M_E)"
         } else {
-            calculatingString = calculatingString + String(M_E)
+            calculatingString = calculatingString + " \(M_E)"
         }
     }
 
