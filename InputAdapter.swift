@@ -90,9 +90,9 @@ class InputAdapter: InputProtocol {
         }
     
     
-    // MARK: Validation of operations
     
     
+    // MARK: Checking Plus
     func pressPlus() {
         
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" || (calculatingString.characters.count == 1 && calculatingString.characters.last == "-")  {
@@ -110,11 +110,11 @@ class InputAdapter: InputProtocol {
     
 
 
-    
+    // MARK: Checking Minus
     func pressMin() {
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" || (calculatingString.characters.count == 1 && calculatingString.characters.last == "+") {
             calculatingString = "-"
-        } else if calculatingString.characters.last == ")" || calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
+        } else if (calculatingString.characters.last == ")" || calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || calculatingString.characters.last! == "." {
             calculatingString = calculatingString + " -"
         
         } else  if calculatingString.characters.last != "(" {
@@ -123,81 +123,119 @@ class InputAdapter: InputProtocol {
         }
     }
     
+    
+    // MARK: Checking Multiply
     func pressMul() {
         if (calculatingString != nil && calculatingString.characters.count > 0) {
-            if (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || calculatingString.characters.last == ")" {
+            if (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || (calculatingString.characters.last == ")") || calculatingString.characters.last! == "." {
                 calculatingString = calculatingString + " ×"
                 
-            } else if calculatingString.characters.last != "(" {
+            } else if calculatingString.characters.last != "(" && calculatingString != "+" && calculatingString != "-" {
                 calculatingString.characters.removeLast()
                 calculatingString = calculatingString + "×"
             }
         }
     }
 
+    // MARK: Checking Divide
     func pressDiv() {
         if calculatingString != nil  && calculatingString.characters.count > 0 {
-            if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
+            if (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || (calculatingString.characters.last == ")") || calculatingString.characters.last! == "." {
                 calculatingString = calculatingString + " ÷"
-            } else if calculatingString.characters.last == ")" {
-                calculatingString = calculatingString + " ÷"
-            } else {
+            
+            } else if calculatingString.characters.last != "(" && calculatingString != "+" && calculatingString != "-" {
                 calculatingString.characters.removeLast()
                 calculatingString = calculatingString + "÷"
             }
         }
     }
     
-    
+    // MARK: Checking PowerTo
     func pressPow() {
         if calculatingString != nil && calculatingString != "0" && calculatingString != "" {
-            if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
+            if (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || (calculatingString.characters.last == ")") || calculatingString.characters.last! == "." {
                 calculatingString = calculatingString + " ^"
                 
-            } else if calculatingString.characters.last == ")" {
-                calculatingString = calculatingString + " ^"
                 
-            } else {
+            } else if calculatingString.characters.last != "(" && calculatingString != "+" && calculatingString != "-" {
                 calculatingString.characters.removeLast()
                 calculatingString = calculatingString + "^"
             }
         }
     }
     
+    // MARK: Checking SqureRoot
     func pressSqrt() {
-        calculatingString == nil || calculatingString == "0" || calculatingString == ""  ? (calculatingString = "√ ") : (calculatingString = calculatingString + "√ ")
+        if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
+            calculatingString = "√"
+        } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
+            calculatingString = calculatingString + " × √"
+        } else {
+            calculatingString = calculatingString + "√"
+        }
     }
     
+    
+    // MARK: Checking Sinus
     func pressSin() {
-        calculatingString == nil || calculatingString == "0" ? (calculatingString = " sin ") : (calculatingString = calculatingString + " sin ")
+        if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
+            calculatingString = "sin"
+        } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
+            calculatingString = calculatingString + " × sin"
+        } else {
+            calculatingString = calculatingString + "sin"
+        }
     }
     
     
+    // MARK: Checking Cosinus
     func pressCos() {
-        calculatingString == nil || calculatingString == "0" ? (calculatingString = " cos ") : (calculatingString = calculatingString + " cos ")
+        if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
+            calculatingString = "cos"
+        } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
+            calculatingString = calculatingString + " × cos"
+        } else {
+            calculatingString = calculatingString + "cos"
+        }
     }
+
     
+    
+    // MARK: Checki Tan
     func pressTan() {
-        calculatingString == nil || calculatingString == "0" ? (calculatingString = " tan ") : (calculatingString = calculatingString + " tan ")
+        if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
+            calculatingString = "tan"
+        } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
+            calculatingString = calculatingString + " × tan"
+        } else {
+            calculatingString = calculatingString + "tan"
+        }
     }
     
+    // MARK: Checking Log
     func pressLog() {
-    calculatingString == nil || calculatingString == "0" || calculatingString == "" ? (calculatingString = " log ") : (calculatingString = calculatingString + " log ")
+        if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
+            calculatingString = "log"
+        } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
+            calculatingString = calculatingString + " × log"
+        } else {
+            calculatingString = calculatingString + "log"
+        }
     }
     
-    
+    // MARK: Checking LeftBracket
     func pressLeftBracket() {
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
             calculatingString = "( "
         } else if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" || calculatingString.characters.last! == ")"  {
             calculatingString = calculatingString + " × ( "
         } else {
-            calculatingString = calculatingString + " ( "
+            calculatingString = calculatingString + "("
         }
         
     }
     
-        
+    // MARK: Checking RightBracket
     func pressRightBracket() {
         if calculatingString != nil && calculatingString != "0" && calculatingString != "" {
             if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
@@ -207,12 +245,13 @@ class InputAdapter: InputProtocol {
                 calculatingString = " × " + calculatingString
                 
             } else {
-               calculatingString = calculatingString + " )"
+               calculatingString = calculatingString + ")"
             }
         }
     }
     
     
+    // MARK: Checking Equal
     func pressEqual() -> Bool {
         if (calculatingString != nil && calculatingString != "0" && calculatingString != "") &&
             ((calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9")) ||
@@ -223,45 +262,8 @@ class InputAdapter: InputProtocol {
         }
     }
     
-        
-        
-        
     
-    
-    
-    //        return calculatingString.characters.last == ")" || (calculatingString.characters.count == 1 && calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || (calculatingString == nil || calculatingString == "0" || calculatingString == "")
-
-    
-//        
-//        return !(calculatingString == nil || calculatingString == "0" || calculatingString == "") || (calculatingString.characters.count == 1 && (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9"))
-//        
-//        if (calculatingString == nil || calculatingString == "0" || calculatingString == "") || (calculatingString.characters.count == 1 && (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9"))  {
-//            return false
-//            
-//        } else {
-//            
-//            return true
-//        }
-//        
-//    }
-//    
-
-
-   
-    
-    
-//    
-//    func pressEqual() -> Bool {
-//        guard (calculatingString) == nil else { return false }
-//        guard ((calculatingString?.characters.last)! == ")" || (calculatingString?.characters.last)! >= "0" && calculatingString.characters.last! <= "9") else { return false }
-//            return true
-//
-//        
-//    }
-    
-    
-    
-    
+    // MARK: Checking Dot
     func pressDot() {
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
             calculatingString = "0."
@@ -278,15 +280,28 @@ class InputAdapter: InputProtocol {
     }
     
 }
-    
+    // MARK: Checking constatnt Pi
     func pressPi() {
-        calculatingString == nil || calculatingString == "0" || calculatingString == "" ? (calculatingString = String(Double.pi) ) : (calculatingString = calculatingString + String(Double.pi))
-        
+        if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
+            calculatingString = String(Double.pi)
+        } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
+            calculatingString = calculatingString + " × " + String(Double.pi)
+        } else {
+            calculatingString = calculatingString + String(Double.pi)
+        }
     }
 
+
+    // MARK: Checking constant E
     func pressE() {
-        calculatingString == nil || calculatingString == "0" || calculatingString == "" ? (calculatingString = String(M_E)) : (calculatingString = calculatingString + String(M_E))
-        
+        if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
+            calculatingString = String(M_E)
+        } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
+            calculatingString = calculatingString + " × " + String(M_E)
+        } else {
+            calculatingString = calculatingString + String(M_E)
+        }
     }
 
 }
+
