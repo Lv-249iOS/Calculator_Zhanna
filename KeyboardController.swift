@@ -64,6 +64,7 @@ class KeyboardController: UIViewController {
                 button.layer.backgroundColor = UIColor.clear.cgColor
             }
         })
+        
     }
     
     func rotated() {

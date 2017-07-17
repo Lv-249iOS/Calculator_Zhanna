@@ -126,7 +126,7 @@ class InputAdapter: InputProtocol {
     func pressMul() {
         if (calculatingString != nil && calculatingString.characters.count > 0) {
             if (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || calculatingString.characters.last == ")" {
-                calculatingString = calculatingString + "×"
+                calculatingString = calculatingString + " ×"
                 
             } else if calculatingString.characters.last != "(" {
                 calculatingString.characters.removeLast()
@@ -138,28 +138,28 @@ class InputAdapter: InputProtocol {
     func pressDiv() {
         if calculatingString != nil  && calculatingString.characters.count > 0 {
             if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
-                calculatingString = calculatingString + " ÷ "
+                calculatingString = calculatingString + " ÷"
             } else if calculatingString.characters.last == ")" {
                 calculatingString = calculatingString + " ÷"
             } else {
                 calculatingString.characters.removeLast()
-                calculatingString = calculatingString + " ÷ "
+                calculatingString = calculatingString + "÷"
             }
         }
     }
     
     
     func pressPow() {
-        if (calculatingString != nil && calculatingString != "0") && calculatingString.characters.count >= 0 {
+        if calculatingString != nil && calculatingString != "0" && calculatingString != "" {
             if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
-                calculatingString = calculatingString + " ^ "
+                calculatingString = calculatingString + " ^"
                 
             } else if calculatingString.characters.last == ")" {
                 calculatingString = calculatingString + " ^"
                 
             } else {
                 calculatingString.characters.removeLast()
-                calculatingString = calculatingString + " ^ "
+                calculatingString = calculatingString + "^"
             }
         }
     }
@@ -199,7 +199,6 @@ class InputAdapter: InputProtocol {
     
         
     func pressRightBracket() {
-       // calculatingString = calculatingString + ")"
         if calculatingString != nil && calculatingString != "0" && calculatingString != "" {
             if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
                 calculatingString = calculatingString + " )"
@@ -215,9 +214,51 @@ class InputAdapter: InputProtocol {
     
     
     func pressEqual() -> Bool {
-        return calculatingString.characters.last == ")" || calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9"
-        
+        if (calculatingString != nil && calculatingString != "0" && calculatingString != "") &&
+            ((calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9")) ||
+            calculatingString.characters.last == ")" {
+            return true
+        } else {
+            return false
+        }
     }
+    
+        
+        
+        
+    
+    
+    
+    //        return calculatingString.characters.last == ")" || (calculatingString.characters.count == 1 && calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || (calculatingString == nil || calculatingString == "0" || calculatingString == "")
+
+    
+//        
+//        return !(calculatingString == nil || calculatingString == "0" || calculatingString == "") || (calculatingString.characters.count == 1 && (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9"))
+//        
+//        if (calculatingString == nil || calculatingString == "0" || calculatingString == "") || (calculatingString.characters.count == 1 && (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9"))  {
+//            return false
+//            
+//        } else {
+//            
+//            return true
+//        }
+//        
+//    }
+//    
+
+
+   
+    
+    
+//    
+//    func pressEqual() -> Bool {
+//        guard (calculatingString) == nil else { return false }
+//        guard ((calculatingString?.characters.last)! == ")" || (calculatingString?.characters.last)! >= "0" && calculatingString.characters.last! <= "9") else { return false }
+//            return true
+//
+//        
+//    }
+    
     
     
     
