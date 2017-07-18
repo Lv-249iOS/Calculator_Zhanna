@@ -10,6 +10,7 @@ import UIKit
 
 class DisplayController: UIViewController {
 
+    @IBOutlet weak var displayTextView: UITextView!
     
     @IBOutlet var displayLabel: UILabel!
     
@@ -17,7 +18,9 @@ class DisplayController: UIViewController {
     
     func presentResult(result: String) {
         displayLabel.text = result
+//        displayTextView.text = result
     }
+    
     
         
     override func viewDidLoad() {
