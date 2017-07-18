@@ -241,11 +241,8 @@ class InputAdapter: InputProtocol {
             if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
                 calculatingString = calculatingString + " )"
                 
-            } else if calculatingString.characters.last! == ")" {
-                calculatingString = " × " + calculatingString
-                
             } else {
-               calculatingString = calculatingString + ")"
+               calculatingString = calculatingString + " )"
             }
         }
     }

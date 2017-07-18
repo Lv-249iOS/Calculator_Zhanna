@@ -45,6 +45,7 @@ class KeyboardController: UIViewController {
         _touched(button: button)
     }
     
+    // MARK: Animate buttons
     private func _touched(button: UIButton) {
 //        button.backgroundColor = UIColor.white.withAlphaComponent(0.1)
 //        button.layer.borderWidth = 2.0
@@ -53,11 +54,12 @@ class KeyboardController: UIViewController {
 //        button.layer.masksToBounds = true
         button.layer.backgroundColor = UIColor.gray.cgColor
         
+        
         // learn the difference between FRAME and BOUNDS
         
         UIView.animate(withDuration: 0.19, animations: {
             button.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-            button.layer.backgroundColor = UIColor.red.cgColor
+            button.layer.backgroundColor = UIColor.purple.withAlphaComponent(0.6).cgColor
         }, completion: { _ in
             UIView.animate(withDuration: 0.34) {
                 button.transform = CGAffineTransform.identity
@@ -67,11 +69,12 @@ class KeyboardController: UIViewController {
         
     }
     
+    // MARK: Rotating AdditionalController
     func rotated() {
         additionalContainerView.isHidden = UIDevice.current.orientation.isPortrait
     }
     
-    // MARK: Navigation
+    // MARK: Navigation of AdditionalController
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier  == "AdditionalControllerSeque",
