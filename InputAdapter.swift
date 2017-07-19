@@ -20,6 +20,7 @@ class InputAdapter: InputProtocol {
     func enterNum(_ number: Int) {
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
             calculatingString = String(number)
+            
         } else if calculatingString.characters.last! == ")" {
             calculatingString =  calculatingString + " × " + "\(number)"
             
@@ -226,7 +227,7 @@ class InputAdapter: InputProtocol {
     // MARK: Checking LeftBracket
     func pressLeftBracket() {
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
-            calculatingString = "( "
+            calculatingString = "("
         } else if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" || calculatingString.characters.last! == ")"  {
             calculatingString = calculatingString + " × ( "
         } else {
@@ -237,7 +238,7 @@ class InputAdapter: InputProtocol {
     
     // MARK: Checking RightBracket
     func pressRightBracket() {
-        if calculatingString != nil && calculatingString != "0" && calculatingString != "" {
+        if (calculatingString != nil && calculatingString != "0" && calculatingString != "") && calculatingString.characters.last != "(" {
             if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
                 calculatingString = calculatingString + " )"
                 
@@ -251,7 +252,7 @@ class InputAdapter: InputProtocol {
     // MARK: Checking Equal
     func pressEqual() -> Bool {
         if (calculatingString != nil && calculatingString != "0" && calculatingString != "") &&
-            ((calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9")) ||
+            ((calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9"))  ||
             calculatingString.characters.last == ")" {
             return true
         } else {

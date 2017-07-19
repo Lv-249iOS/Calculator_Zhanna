@@ -52,14 +52,14 @@ class KeyboardController: UIViewController {
 //        button.layer.borderColor = UIColor.white.cgColor
 //        button.layer.cornerRadius = 5.0
 //        button.layer.masksToBounds = true
-        button.layer.backgroundColor = UIColor.gray.cgColor
+//        button.layer.backgroundColor = UIColor.gray.cgColor
         
         
         // learn the difference between FRAME and BOUNDS
         
         UIView.animate(withDuration: 0.19, animations: {
             button.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-            button.layer.backgroundColor = UIColor.purple.withAlphaComponent(0.6).cgColor
+            button.layer.backgroundColor = UIColor.purple.withAlphaComponent(0.55).cgColor
         }, completion: { _ in
             UIView.animate(withDuration: 0.34) {
                 button.transform = CGAffineTransform.identity
