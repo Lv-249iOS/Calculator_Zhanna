@@ -27,8 +27,8 @@ class InputAdapter: InputProtocol {
         } else if calculatingString.characters.last == "." || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || (calculatingString.characters.count == 1 && (calculatingString.characters.last == "+" || calculatingString.characters.last == "-")) {
             calculatingString = calculatingString + "\(number)"
             
-//        } else if calculatingString.characters.count >= 3, calculatingString.substring(from: calculatingString.index(calculatingString.endIndex, offsetBy: -3)) == "( -" {
-//            calculatingString = calculatingString + "\(number)"
+        } else if calculatingString.characters.count >= 3, calculatingString.substring(from: calculatingString.index(calculatingString.endIndex, offsetBy: -3)) == "( -" {
+            calculatingString = calculatingString + "\(number)"
             
         } else {
             calculatingString = calculatingString + " \(number)"
@@ -117,8 +117,10 @@ class InputAdapter: InputProtocol {
     func pressMin() {
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" || (calculatingString.characters.count == 1 && calculatingString.characters.last == "+") {
             calculatingString = "-"
-        } else if (calculatingString.characters.last == ")" || calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || calculatingString.characters.last! == "." {
+            
+        } else if (calculatingString.characters.last == ")" || calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || calculatingString.characters.last! == "." || calculatingString.characters.last == "("  {
             calculatingString = calculatingString + " -"
+            
         
         } else  if calculatingString.characters.last != "(" {
         calculatingString.characters.removeLast()
