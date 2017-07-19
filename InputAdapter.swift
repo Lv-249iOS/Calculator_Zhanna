@@ -27,6 +27,8 @@ class InputAdapter: InputProtocol {
         } else if calculatingString.characters.last == "." || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || (calculatingString.characters.count == 1 && (calculatingString.characters.last == "+" || calculatingString.characters.last == "-")) {
             calculatingString = calculatingString + "\(number)"
             
+//        } else if calculatingString.characters.count >= 3, calculatingString.substring(from: calculatingString.index(calculatingString.endIndex, offsetBy: -3)) == "( -" {
+//            calculatingString = calculatingString + "\(number)"
             
         } else {
             calculatingString = calculatingString + " \(number)"
@@ -180,11 +182,11 @@ class InputAdapter: InputProtocol {
     // MARK: Checking Sinus
     func pressSin() {
         if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
-            calculatingString = "sin"
+            calculatingString = "sin "
         } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
             calculatingString = calculatingString + " × sin"
         } else {
-            calculatingString = calculatingString + "sin"
+            calculatingString = calculatingString + " sin"
         }
     }
     
@@ -192,11 +194,11 @@ class InputAdapter: InputProtocol {
     // MARK: Checking Cosinus
     func pressCos() {
         if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
-            calculatingString = "cos"
+            calculatingString = "cos "
         } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
             calculatingString = calculatingString + " × cos"
         } else {
-            calculatingString = calculatingString + "cos"
+            calculatingString = calculatingString + " cos"
         }
     }
 
@@ -205,22 +207,22 @@ class InputAdapter: InputProtocol {
     // MARK: Checki Tan
     func pressTan() {
         if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
-            calculatingString = "tan"
+            calculatingString = "tan "
         } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
             calculatingString = calculatingString + " × tan"
         } else {
-            calculatingString = calculatingString + "tan"
+            calculatingString = calculatingString + " tan"
         }
     }
     
     // MARK: Checking Log
     func pressLog() {
         if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
-            calculatingString = "log"
+            calculatingString = "log "
         } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
             calculatingString = calculatingString + " × log"
         } else {
-            calculatingString = calculatingString + "log"
+            calculatingString = calculatingString + " log"
         }
     }
     
@@ -282,8 +284,13 @@ class InputAdapter: InputProtocol {
     func pressPi() {
         if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
             calculatingString = "\(Double.pi)"
+            
         } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
             calculatingString = calculatingString + " × \(Double.pi)"
+            
+        } else if  (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || (calculatingString.characters.count == 1 && calculatingString.characters.last == "-") {
+            calculatingString = calculatingString + "\(Double.pi)"
+            
         } else {
             calculatingString = calculatingString + " \(Double.pi)"
         }
@@ -294,8 +301,13 @@ class InputAdapter: InputProtocol {
     func pressE() {
         if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
             calculatingString = "\(M_E)"
+            
         } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
+            
             calculatingString = calculatingString + " × \(M_E)"
+        } else if  (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || (calculatingString.characters.count == 1 && calculatingString.characters.last == "-") {
+            calculatingString = calculatingString + "\(M_E)"
+            
         } else {
             calculatingString = calculatingString + " \(M_E)"
         }
