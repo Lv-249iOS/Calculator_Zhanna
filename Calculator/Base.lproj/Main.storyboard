@@ -442,6 +442,7 @@
                     </view>
                     <connections>
                         <outlet property="displayLabel" destination="va4-Aq-g1b" id="eHC-4a-WDN"/>
+                        <outlet property="displayScrollView" destination="zJG-pT-dWa" id="BfO-7t-xF1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7J1-rW-yUd" userLabel="First Responder" sceneMemberID="firstResponder"/>

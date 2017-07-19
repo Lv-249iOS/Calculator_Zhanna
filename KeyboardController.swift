@@ -47,12 +47,12 @@ class KeyboardController: UIViewController {
     
     // MARK: Animate buttons
     private func _touched(button: UIButton) {
-//        button.backgroundColor = UIColor.white.withAlphaComponent(0.1)
-//        button.layer.borderWidth = 2.0
-//        button.layer.borderColor = UIColor.white.cgColor
-//        button.layer.cornerRadius = 5.0
-//        button.layer.masksToBounds = true
-//        button.layer.backgroundColor = UIColor.gray.cgColor
+        //        button.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+        //        button.layer.borderWidth = 2.0
+        //        button.layer.borderColor = UIColor.white.cgColor
+        //        button.layer.cornerRadius = 5.0
+        //        button.layer.masksToBounds = true
+        //        button.layer.backgroundColor = UIColor.gray.cgColor
         
         
         // learn the difference between FRAME and BOUNDS

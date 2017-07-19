@@ -29,9 +29,10 @@ class Brain: Model {
     
     
     // MARK: processing equation and sending result to outputAdapter
-    func process() {
+    func process(completion: (_ result: Double) -> ()) {
         let result = calculateEquation()
         outputAdapter.presentResult(result: String(result))
+        completion(result)
     }
     
     

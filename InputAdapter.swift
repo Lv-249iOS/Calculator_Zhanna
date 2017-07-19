@@ -11,10 +11,7 @@ import Foundation
 class InputAdapter: InputProtocol {
     static let shared = InputAdapter()
     let brain = Brain.shared
-    var calculatingString: String! = "" // moving string
-    
-    
-    
+    var calculatingString: String! = "" // movable string
     
     // MARK: ENTER NUMBERS(DIGITS):
     func enterNum(_ number: Int) {
@@ -32,65 +29,67 @@ class InputAdapter: InputProtocol {
             
         } else {
             calculatingString = calculatingString + " \(number)"
-
+            
         }
         
         brain.enterEquation(equation: calculatingString)
     }
-
-
+    
+    
     // MARK: ENTER SYMBOLS(OPERATIONS):
     
     func enterUtility(_ symbol: Operation) {
         
         
-            switch symbol {
-            case .pls:
-                pressPlus()
-            case .mns:
-                 pressMin()
-            case .mul:
-                 pressMul()
-            case .div:
-                pressDiv()
-            case .pow:
-                 pressPow()
-            case .sqrt:
-                 pressSqrt()
-            case .sin:
-                pressSin()
-            case .cos:
-                 pressCos()
-            case .log:
-                 pressLog()
-            case .leftBracket:
-               pressLeftBracket()
-            case .rightBracket:
-                pressRightBracket()
-            case .pi:
-                pressPi()
-            case .clear:
-                brain.clear()
-                calculatingString = ""
-                calculatingString = calculatingString + ""
-            case .dot:
-                 pressDot()
-            case .sign:
-                calculatingString = calculatingString + " ± "
-            case .equal:
-                if pressEqual() {
-                    brain.process()
+        switch symbol {
+        case .pls:
+            pressPlus()
+        case .mns:
+            pressMin()
+        case .mul:
+            pressMul()
+        case .div:
+            pressDiv()
+        case .pow:
+            pressPow()
+        case .sqrt:
+            pressSqrt()
+        case .sin:
+            pressSin()
+        case .cos:
+            pressCos()
+        case .log:
+            pressLog()
+        case .leftBracket:
+            pressLeftBracket()
+        case .rightBracket:
+            pressRightBracket()
+        case .pi:
+            pressPi()
+        case .clear:
+            brain.clear()
+            calculatingString = ""
+            calculatingString = calculatingString + ""
+        case .dot:
+            pressDot()
+        case .sign:
+            calculatingString = calculatingString + " ± "
+        case .equal:
+            if pressEqual() {
+                brain.process() { result in
+                   calculatingString = "\(result)"
                 }
-            case .e:
-                pressE()
-            case .tan:
-                pressTan()
             }
-            if symbol != .equal {
-                brain.enterEquation(equation: calculatingString)
-            }
-       
+        case .e:
+            pressE()
+        case .tan:
+            pressTan()
         }
+        if symbol != .equal {
+            brain.enterEquation(equation: calculatingString)
+        }
+        
+    }
     
     
     
@@ -103,7 +102,7 @@ class InputAdapter: InputProtocol {
             
         } else if (calculatingString.characters.last == ")" || calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9")  ||  calculatingString.characters.last! == "." {
             calculatingString = calculatingString + " +"
-
+            
             
         } else if calculatingString.characters.last != "(" {
             calculatingString.characters.removeLast()
@@ -111,8 +110,8 @@ class InputAdapter: InputProtocol {
         }
     }
     
-
-
+    
+    
     // MARK: Checking Minus
     func pressMin() {
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" || (calculatingString.characters.count == 1 && calculatingString.characters.last == "+") {
@@ -121,9 +120,9 @@ class InputAdapter: InputProtocol {
         } else if (calculatingString.characters.last == ")" || calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || calculatingString.characters.last! == "." || calculatingString.characters.last == "("  {
             calculatingString = calculatingString + " -"
             
-        
+            
         } else  if calculatingString.characters.last != "(" {
-        calculatingString.characters.removeLast()
+            calculatingString.characters.removeLast()
             calculatingString = calculatingString + "-"
         }
     }
@@ -141,13 +140,13 @@ class InputAdapter: InputProtocol {
             }
         }
     }
-
+    
     // MARK: Checking Divide
     func pressDiv() {
         if calculatingString != nil  && calculatingString.characters.count > 0 {
             if (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || (calculatingString.characters.last == ")") || calculatingString.characters.last! == "." {
                 calculatingString = calculatingString + " ÷"
-            
+                
             } else if calculatingString.characters.last != "(" && calculatingString != "+" && calculatingString != "-" {
                 calculatingString.characters.removeLast()
                 calculatingString = calculatingString + "÷"
@@ -203,7 +202,7 @@ class InputAdapter: InputProtocol {
             calculatingString = calculatingString + " cos"
         }
     }
-
+    
     
     
     // MARK: Checki Tan
@@ -247,7 +246,7 @@ class InputAdapter: InputProtocol {
                 calculatingString = calculatingString + " )"
                 
             } else {
-               calculatingString = calculatingString + " )"
+                calculatingString = calculatingString + " )"
             }
         }
     }
@@ -272,16 +271,16 @@ class InputAdapter: InputProtocol {
             
         } else if calculatingString.characters.last != "." {
             
-        if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
-            calculatingString! += "."
-            
-        } else if calculatingString.characters.last == "(" {
-         calculatingString = calculatingString + "0."
-        
+            if calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9" {
+                calculatingString! += "."
+                
+            } else if calculatingString.characters.last == "(" {
+                calculatingString = calculatingString + "0."
+                
+            }
         }
+        
     }
-    
-}
     // MARK: Checking constatnt Pi
     func pressPi() {
         if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
@@ -294,15 +293,15 @@ class InputAdapter: InputProtocol {
             calculatingString = calculatingString + "\(Double.pi)"
             
         } else if calculatingString.characters.count >= 3, calculatingString.substring(from: calculatingString.index(calculatingString.endIndex, offsetBy: -3)) == "( -" {
-                calculatingString = calculatingString + "\(Double.pi)"
-
+            calculatingString = calculatingString + "\(Double.pi)"
+            
             
         } else {
             calculatingString = calculatingString + " \(Double.pi)"
         }
     }
-
-
+    
+    
     // MARK: Checking constant E
     func pressE() {
         if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
@@ -316,12 +315,12 @@ class InputAdapter: InputProtocol {
             
         } else if calculatingString.characters.count >= 3, calculatingString.substring(from: calculatingString.index(calculatingString.endIndex, offsetBy: -3)) == "( -" {
             calculatingString = calculatingString + "\(M_E)"
-        
+            
             
         } else {
             calculatingString = calculatingString + " \(M_E)"
         }
     }
-
+    
 }
 

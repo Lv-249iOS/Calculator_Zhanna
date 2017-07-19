@@ -18,6 +18,6 @@ class OutputAdapter: OutputProtocol {
     func presentResult(result: String) {
         display?.presentResult(result: result)
     }
-
+    
     
 }

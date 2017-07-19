@@ -15,7 +15,6 @@ class AdditionalController: UIViewController {
     
     @IBAction func touchUtilitySymbol(_ button: UIButton) {
         touchedUtilitySymbol?(button)
-        
     }
     
 }

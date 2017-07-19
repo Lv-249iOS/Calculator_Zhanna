@@ -10,15 +10,21 @@ import UIKit
 
 class DisplayController: UIViewController {
 
-    @IBOutlet weak var displayTextView: UITextView!
-    
     @IBOutlet var displayLabel: UILabel!
+    @IBOutlet weak var displayScrollView: UIScrollView!
+    
+    
     
     let outputAdapter = OutputAdapter.shared
     
     func presentResult(result: String) {
         displayLabel.text = result
-//        displayTextView.text = result
+        
+        //1. VIEW LIFECYCLE
+        //2. LAYOUTSUBVIEWS, SETNEEDSLAYOUT, LAYOUTIFNEEDED
+    
+        displayScrollView.layoutIfNeeded()
+        displayScrollView.scrollRectToVisible(displayLabel.bounds, animated: true)
     }
     
     
