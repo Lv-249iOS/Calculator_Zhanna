@@ -293,6 +293,10 @@ class InputAdapter: InputProtocol {
         } else if  (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || (calculatingString.characters.count == 1 && calculatingString.characters.last == "-") {
             calculatingString = calculatingString + "\(Double.pi)"
             
+        } else if calculatingString.characters.count >= 3, calculatingString.substring(from: calculatingString.index(calculatingString.endIndex, offsetBy: -3)) == "( -" {
+                calculatingString = calculatingString + "\(Double.pi)"
+
+            
         } else {
             calculatingString = calculatingString + " \(Double.pi)"
         }
@@ -305,10 +309,14 @@ class InputAdapter: InputProtocol {
             calculatingString = "\(M_E)"
             
         } else if calculatingString.characters.last! == ")" || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") {
-            
             calculatingString = calculatingString + " × \(M_E)"
+            
         } else if  (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || (calculatingString.characters.count == 1 && calculatingString.characters.last == "-") {
             calculatingString = calculatingString + "\(M_E)"
+            
+        } else if calculatingString.characters.count >= 3, calculatingString.substring(from: calculatingString.index(calculatingString.endIndex, offsetBy: -3)) == "( -" {
+            calculatingString = calculatingString + "\(M_E)"
+        
             
         } else {
             calculatingString = calculatingString + " \(M_E)"
