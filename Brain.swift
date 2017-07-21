@@ -56,7 +56,7 @@ class Brain: Model {
                 
             } else if !arrayOfOperations.isEmpty && (token == "cos" || token == "sin" || token == "√" || token == "log" || token == "tan") {
                 let unaryOperation = Double(arrayOfOperations.removeLast())
-
+                
                 // MARK: Performing unaryoperations
                 switch token {
                 case "cos":
@@ -94,7 +94,7 @@ class Brain: Model {
                         
                     }
                 } else {
-//                calculatingString = "(Something went wrong)"
+                    //                calculatingString = "(Something went wrong)"
                     return 0.0
                 }
             }

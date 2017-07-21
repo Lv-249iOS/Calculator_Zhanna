@@ -25,7 +25,7 @@ class KeyboardController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
     }
     
@@ -70,9 +70,9 @@ class KeyboardController: UIViewController {
     }
     
     // MARK: Rotating AdditionalController
-    func rotated() {
-        additionalContainerView.isHidden = UIDevice.current.orientation.isPortrait
-    }
+//    func rotated() {
+//        additionalContainerView.isHidden = UIDevice.current.orientation.isPortrait
+//    }
     
     // MARK: Navigation of AdditionalController
     

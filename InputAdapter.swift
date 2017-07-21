@@ -13,7 +13,8 @@ class InputAdapter: InputProtocol {
     let brain = Brain.shared
     var calculatingString: String! = "" // movable string
     
-    // MARK: ENTER NUMBERS(DIGITS):
+    
+    // MARK: Enter numbers(Digits)
     func enterNum(_ number: Int) {
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
             calculatingString = String(number)
@@ -36,11 +37,9 @@ class InputAdapter: InputProtocol {
     }
     
     
-    // MARK: ENTER SYMBOLS(OPERATIONS):
     
+    // MARK: Enter symbols(OPERATIONS):
     func enterUtility(_ symbol: Operation) {
-        
-        
         switch symbol {
         case .pls:
             pressPlus()
@@ -69,7 +68,7 @@ class InputAdapter: InputProtocol {
         case .clear:
             brain.clear()
             calculatingString = ""
-            calculatingString = calculatingString + ""
+            calculatingString = calculatingString + "" // MARK: Clearing result
         case .dot:
             pressDot()
         case .sign:
@@ -77,7 +76,7 @@ class InputAdapter: InputProtocol {
         case .equal:
             if pressEqual() {
                 brain.process() { result in
-                   calculatingString = "\(result)"
+                    calculatingString = "\(result)" // MARK: Checking result
                 }
             }
         case .e:
@@ -96,7 +95,6 @@ class InputAdapter: InputProtocol {
     
     // MARK: Checking Plus
     func pressPlus() {
-        
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" || (calculatingString.characters.count == 1 && calculatingString.characters.last == "-")  {
             calculatingString = "+"
             

@@ -45,10 +45,5 @@ class PanelController: UIViewController {
         let operation = Operation(rawValue: symbol)
         inputAdapter.enterUtility(operation!)
     }
-    
-    
-    
-    
-    
 }
 

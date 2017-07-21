@@ -12,12 +12,7 @@ class OutputAdapter: OutputProtocol {
     static let shared = OutputAdapter()
     var display: DisplayController?
     
-    
-    
-    
     func presentResult(result: String) {
         display?.presentResult(result: result)
     }
-    
-    
 }

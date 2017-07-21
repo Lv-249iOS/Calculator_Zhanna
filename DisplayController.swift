@@ -9,7 +9,7 @@
 import UIKit
 
 class DisplayController: UIViewController {
-
+    
     @IBOutlet var displayLabel: UILabel!
     @IBOutlet weak var displayScrollView: UIScrollView!
     
@@ -22,19 +22,19 @@ class DisplayController: UIViewController {
         
         //1. VIEW LIFECYCLE
         //2. LAYOUTSUBVIEWS, SETNEEDSLAYOUT, LAYOUTIFNEEDED
-    
+        
         displayScrollView.layoutIfNeeded()
         displayScrollView.scrollRectToVisible(displayLabel.bounds, animated: true)
     }
     
     
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         outputAdapter.display = self
     }
-
+    
 }
 
