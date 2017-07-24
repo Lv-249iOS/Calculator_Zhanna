@@ -77,6 +77,7 @@ class InputAdapter: InputProtocol {
             if pressEqual() {
                 brain.process() { result in
                     calculatingString = "\(result)" // MARK: Checking result
+                    
                 }
             }
         case .e:

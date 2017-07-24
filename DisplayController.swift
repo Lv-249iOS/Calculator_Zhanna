@@ -19,6 +19,7 @@ class DisplayController: UIViewController {
     
     func presentResult(result: String) {
         displayLabel.text = result
+       
         
         //1. VIEW LIFECYCLE
         //2. LAYOUTSUBVIEWS, SETNEEDSLAYOUT, LAYOUTIFNEEDED
@@ -35,6 +36,8 @@ class DisplayController: UIViewController {
         
         outputAdapter.display = self
     }
+    
+    
     
 }
 

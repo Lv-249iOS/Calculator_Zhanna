@@ -60,6 +60,7 @@ class KeyboardController: UIViewController {
         UIView.animate(withDuration: 0.19, animations: {
             button.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
             button.layer.backgroundColor = UIColor.purple.withAlphaComponent(0.55).cgColor
+            
         }, completion: { _ in
             UIView.animate(withDuration: 0.34) {
                 button.transform = CGAffineTransform.identity
@@ -74,8 +75,9 @@ class KeyboardController: UIViewController {
 //        additionalContainerView.isHidden = UIDevice.current.orientation.isPortrait
 //    }
     
-    // MARK: Navigation of AdditionalController
     
+    
+    // MARK: Navigation of AdditionalController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier  == "AdditionalControllerSeque",
             let controller = segue.destination as? AdditionalController {

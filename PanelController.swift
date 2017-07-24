@@ -16,7 +16,7 @@ class PanelController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        rainOfPaperShips()
         if segue.identifier  == "DisplayControllerSeque",
             let controller = segue.destination as? DisplayController {
             display = controller
@@ -44,6 +44,16 @@ class PanelController: UIViewController {
     func touchSymbol(symbol: Int) {
         let operation = Operation(rawValue: symbol)
         inputAdapter.enterUtility(operation!)
+        
     }
+    func rainOfPaperShips() {
+        let emitter = Emitter.get(with: #imageLiteral(resourceName: "purplestar"))
+        emitter.emitterPosition = CGPoint(x: view.frame.width / 2, y: 0)
+        emitter.emitterSize = CGSize(width: view.frame.width, height: 2)
+        view.layer.addSublayer(emitter)
+    }
+
+    
+    
 }
 
