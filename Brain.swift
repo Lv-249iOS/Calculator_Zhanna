@@ -12,19 +12,18 @@ class Brain: Model {
     static let shared = Brain()
     let outputAdapter = OutputAdapter.shared
     var equation: String!
-
+    
     
     func enterEquation(equation: String) {
         self.equation = equation
         outputAdapter.presentResult(result: equation)
     }
     
-    // MARK: Clearing result from display
+    // MARK: Clear result
     func clear() {
         equation = ""
         outputAdapter.presentResult(result: "0")
     }
-    
     
     
     // MARK: Processing equation and sending result to outputAdapter
@@ -35,16 +34,13 @@ class Brain: Model {
     }
     
     
-    
-    // MARK: Separating string to characters
+    // MARK: Separating string to tokens
     func parseInfix(_ equationString: String) -> [String] {
         let tokens = equationString.characters.split{$0 == " "}.map(String.init)
         return tokens
     }
     
     
-    
-    // MARK: Calculating equation
     func calculateEquation() -> Double {
         let rpnString = reverseToPolishNotation(tokens: parseInfix(equation))
         var arrayOfOperations : [String] = [] // String for digits
@@ -57,7 +53,7 @@ class Brain: Model {
                 let unaryOperation = Double(arrayOfOperations.removeLast())
                 
                 
-                // MARK: Performing unaryoperations
+                // Performing unary operations
                 switch token {
                 case "cos":
                     arrayOfOperations += [String(cos(unaryOperation!))]
@@ -77,7 +73,7 @@ class Brain: Model {
                 if arrayOfOperations.count > 1 {
                     if let operandTwo = Double(arrayOfOperations.removeLast()), let operandOne = Double(arrayOfOperations.removeLast()) {
                         
-                        // MARK: Performing binaryoperations
+                        // Performing binaryoperations
                         switch token {
                         case "+":
                             arrayOfOperations += [String(operandOne + operandTwo)]
@@ -94,7 +90,7 @@ class Brain: Model {
                         
                     }
                 } else {
-                    // MARK: When uncorectly inputed
+                    // On incorrect input
                     return 0.0
                 }
             }
@@ -102,7 +98,7 @@ class Brain: Model {
         return Double(arrayOfOperations.removeLast())!
     }
     
-    // MARK: Reverse to Polis notation
+    // MARK: Reverse to Polish notation
     func reverseToPolishNotation(tokens: [String]) -> [String] {
         var arrayOfOperands : [String] = [] // Array for equations
         var arrayOfOperations : [String] = [] // Array for operations
@@ -157,7 +153,6 @@ class Brain: Model {
         "+" : (prec: 2, rAssoc: false),
         "-" : (prec: 2, rAssoc: false)
     ]
-    
     
 }
 

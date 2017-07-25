@@ -154,9 +154,9 @@
 		20A6ED8F1F03EEB5006C50ED /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				204CBD341F04113D0049DDCB /* KeyboardController.swift */,
 				204CBD361F0411470049DDCB /* PanelController.swift */,
 				204CBD321F0411390049DDCB /* DisplayController.swift */,
+				204CBD341F04113D0049DDCB /* KeyboardController.swift */,
 				20B9BF071F14DCDA00F6770F /* AdditionalController.swift */,
 			);
 			name = Controllers;
@@ -168,8 +168,8 @@
 			children = (
 				20A6ED941F03F282006C50ED /* Protocols.swift */,
 				20A6ED971F03F2D6006C50ED /* InputAdapter.swift */,
-				20A6ED991F03F2F0006C50ED /* OutputAdapter.swift */,
 				20A6ED9B1F03F305006C50ED /* Brain.swift */,
+				20A6ED991F03F2F0006C50ED /* OutputAdapter.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";

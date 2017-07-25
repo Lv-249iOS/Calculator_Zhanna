@@ -20,7 +20,7 @@ class PanelController: UIViewController {
         rainfOfPurpleStars()
     }
     
-    // MARK: Navigation of DisplayController and KeyboardController
+    // MARK: Navigation 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier  == "DisplayControllerSeque",
             let controller = segue.destination as? DisplayController {
@@ -40,6 +40,7 @@ class PanelController: UIViewController {
         }
     }
     
+    
     func touchDigit(digit: Int) {
         inputAdapter.enterNum(digit)
     }
@@ -49,14 +50,13 @@ class PanelController: UIViewController {
         inputAdapter.enterUtility(operation!)
         
     }
+    
+    // MARK: Setting emitter position
     func rainfOfPurpleStars() {
         let emitter = Emitter.get(with: #imageLiteral(resourceName: "purplestar"))
         emitter.emitterPosition = CGPoint(x: view.frame.width / 2, y: 0)
         emitter.emitterSize = CGSize(width: view.frame.width, height: 2)
         view.layer.addSublayer(emitter)
     }
-
-    
-    
 }
 

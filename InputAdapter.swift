@@ -205,7 +205,7 @@ class InputAdapter: InputProtocol {
     
     
     
-    // MARK: Checki Tan
+    // MARK: Checking Tan
     func pressTan() {
         if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
             calculatingString = "tan "

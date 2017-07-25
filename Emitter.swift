@@ -11,13 +11,14 @@ import UIKit
 
 class Emitter {
     
+    // MARK: Generate emitter layer and its properties
     static func get(with image: UIImage) -> CAEmitterLayer {
         let emitter = CAEmitterLayer()
         emitter.emitterShape = kCAEmitterLayerLine
         emitter.emitterCells = generateEmitterCells(with: image)
         return emitter
     }
-    
+    // MARK: Generate emitter cells and add  some properties
     static func generateEmitterCells(with image: UIImage) -> [CAEmitterCell] {
         var cells = [CAEmitterCell]()
         let cell = CAEmitterCell()
@@ -31,8 +32,6 @@ class Emitter {
         cell.spinRange = 0.5
         cell.scale = 0.1
         cell.scaleRange = 0.05
-        
-        
         
         cells.append(cell)
         

@@ -19,16 +19,13 @@ class DisplayController: UIViewController {
     func presentResult(result: String) {
         displayLabel.text = result
         
-        
-        
-        // MARK: Checking content size of scroll view and reloading it if needed(layout itself)
+        // MARK: Reloading layout of scroll view to correctly display its position
         displayScrollView.layoutIfNeeded()
         displayScrollView.scrollRectToVisible(displayLabel.bounds, animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         outputAdapter.display = self
     }

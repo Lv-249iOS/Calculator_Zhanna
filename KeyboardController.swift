@@ -18,16 +18,12 @@ class KeyboardController: UIViewController {
     @IBOutlet weak var additionalContainerView: UIView!
     @IBOutlet weak var additionalWidthConstraint: NSLayoutConstraint!
     
-    
-    
     // MARK: View Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     // MARK: IBActions
-    
     @IBAction func touchDigit(button: UIButton) {
         touchedDigit?(button.tag)
         _touched(button: button)
