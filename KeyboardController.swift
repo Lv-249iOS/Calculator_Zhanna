@@ -26,10 +26,6 @@ class KeyboardController: UIViewController {
         super.viewDidLoad()
     }
     
-//    deinit {
-//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-//    }
-    
     // MARK: IBActions
     
     @IBAction func touchDigit(button: UIButton) {
