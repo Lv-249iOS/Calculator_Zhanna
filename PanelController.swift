@@ -14,9 +14,13 @@ class PanelController: UIViewController {
     var keyboard: KeyboardController!
     let inputAdapter = InputAdapter.shared
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        rainOfPaperShips()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        rainOfPaperShips()
         if segue.identifier  == "DisplayControllerSeque",
             let controller = segue.destination as? DisplayController {
             display = controller
@@ -33,8 +37,6 @@ class PanelController: UIViewController {
             }
             
         }
-        
-        
     }
     
     func touchDigit(digit: Int) {

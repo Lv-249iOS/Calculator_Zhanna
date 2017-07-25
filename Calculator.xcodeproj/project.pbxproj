@@ -154,10 +154,10 @@
 			isa = PBXGroup;
 			children = (
 				204CBD341F04113D0049DDCB /* KeyboardController.swift */,
-				20F0E1D11F262CAB00259210 /* Emitter.swift */,
 				204CBD361F0411470049DDCB /* PanelController.swift */,
 				204CBD321F0411390049DDCB /* DisplayController.swift */,
 				20B9BF071F14DCDA00F6770F /* AdditionalController.swift */,
+				20F0E1D11F262CAB00259210 /* Emitter.swift */,
 			);
 			name = Controllers;
 			path = ..;
