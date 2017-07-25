@@ -21,7 +21,7 @@ protocol Model {
     func enterEquation(equation: String)
 }
 
-
+// MARK: Enum of operations with tag
 enum Operation: Int {
     case pls = 10001
     case mns = 10002

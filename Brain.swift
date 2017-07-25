@@ -12,15 +12,14 @@ class Brain: Model {
     static let shared = Brain()
     let outputAdapter = OutputAdapter.shared
     var equation: String!
-    var calculatingString: String?
-    
+
     
     func enterEquation(equation: String) {
         self.equation = equation
         outputAdapter.presentResult(result: equation)
     }
     
-    // MARK: clearing result from display
+    // MARK: Clearing result from display
     func clear() {
         equation = ""
         outputAdapter.presentResult(result: "0")
@@ -28,7 +27,7 @@ class Brain: Model {
     
     
     
-    // MARK: processing equation and sending result to outputAdapter
+    // MARK: Processing equation and sending result to outputAdapter
     func process(completion: (_ result: Double) -> ()) {
         let result = calculateEquation()
         outputAdapter.presentResult(result: String(result))
@@ -37,7 +36,7 @@ class Brain: Model {
     
     
     
-    // MARK: separating String to characters
+    // MARK: Separating string to characters
     func parseInfix(_ equationString: String) -> [String] {
         let tokens = equationString.characters.split{$0 == " "}.map(String.init)
         return tokens
@@ -56,6 +55,7 @@ class Brain: Model {
                 
             } else if !arrayOfOperations.isEmpty && (token == "cos" || token == "sin" || token == "√" || token == "log" || token == "tan") {
                 let unaryOperation = Double(arrayOfOperations.removeLast())
+                
                 
                 // MARK: Performing unaryoperations
                 switch token {
@@ -94,7 +94,7 @@ class Brain: Model {
                         
                     }
                 } else {
-                    //                calculatingString = "(Something went wrong)"
+                    // MARK: When uncorectly inputed
                     return 0.0
                 }
             }
@@ -138,7 +138,7 @@ class Brain: Model {
                 }
             }
         }
-        return (arrayOfOperands + arrayOfOperations.reversed()) // lifo (like in stack struct)
+        return (arrayOfOperands + arrayOfOperations.reversed())
     }
     
     

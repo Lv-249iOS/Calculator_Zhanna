@@ -62,7 +62,7 @@
 		20A6ED991F03F2F0006C50ED /* OutputAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OutputAdapter.swift; path = ../OutputAdapter.swift; sourceTree = "<group>"; };
 		20A6ED9B1F03F305006C50ED /* Brain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Brain.swift; path = ../Brain.swift; sourceTree = "<group>"; };
 		20B9BF071F14DCDA00F6770F /* AdditionalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdditionalController.swift; path = Calculator/AdditionalController.swift; sourceTree = "<group>"; };
-		20F0E1D11F262CAB00259210 /* Emitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emitter.swift; sourceTree = "<group>"; };
+		20F0E1D11F262CAB00259210 /* Emitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Emitter.swift; path = ../Emitter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +142,7 @@
 		20A6ED8C1F03E702006C50ED /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				20F0E1D11F262CAB00259210 /* Emitter.swift */,
 				20A6ED671F03E6DB006C50ED /* LaunchScreen.storyboard */,
 				20A6ED6A1F03E6DB006C50ED /* Info.plist */,
 				20A6ED651F03E6DB006C50ED /* Assets.xcassets */,
@@ -157,7 +158,6 @@
 				204CBD361F0411470049DDCB /* PanelController.swift */,
 				204CBD321F0411390049DDCB /* DisplayController.swift */,
 				20B9BF071F14DCDA00F6770F /* AdditionalController.swift */,
-				20F0E1D11F262CAB00259210 /* Emitter.swift */,
 			);
 			name = Controllers;
 			path = ..;

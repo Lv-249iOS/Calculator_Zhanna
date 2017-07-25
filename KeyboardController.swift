@@ -16,22 +16,19 @@ class KeyboardController: UIViewController {
     var additionalController: AdditionalController!
     
     @IBOutlet weak var additionalContainerView: UIView!
-    
     @IBOutlet weak var additionalWidthConstraint: NSLayoutConstraint!
+    
     
     
     // MARK: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-        
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-    }
+//    deinit {
+//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+//    }
     
     // MARK: IBActions
     
@@ -45,36 +42,22 @@ class KeyboardController: UIViewController {
         _touched(button: button)
     }
     
+    
     // MARK: Animate buttons
     private func _touched(button: UIButton) {
-        //        button.backgroundColor = UIColor.white.withAlphaComponent(0.1)
-        //        button.layer.borderWidth = 2.0
-        //        button.layer.borderColor = UIColor.white.cgColor
-        //        button.layer.cornerRadius = 5.0
-        //        button.layer.masksToBounds = true
-        //        button.layer.backgroundColor = UIColor.gray.cgColor
-        
-        
-        // learn the difference between FRAME and BOUNDS
-        
-        UIView.animate(withDuration: 0.19, animations: {
+        let beforeColor = button.backgroundColor
+        UIView.animate(withDuration: 0.3, animations: {
             button.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
             button.layer.backgroundColor = UIColor.purple.withAlphaComponent(0.55).cgColor
-            
+            button.layer.backgroundColor = UIColor.clear.cgColor
         }, completion: { _ in
             UIView.animate(withDuration: 0.34) {
                 button.transform = CGAffineTransform.identity
-                button.layer.backgroundColor = UIColor.clear.cgColor
+                button.layer.backgroundColor = beforeColor?.cgColor
             }
         })
         
     }
-    
-    // MARK: Rotating AdditionalController
-//    func rotated() {
-//        additionalContainerView.isHidden = UIDevice.current.orientation.isPortrait
-//    }
-    
     
     
     // MARK: Navigation of AdditionalController

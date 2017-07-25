@@ -17,9 +17,10 @@ class PanelController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        rainOfPaperShips()
+        rainfOfPurpleStars()
     }
     
+    // MARK: Navigation of DisplayController and KeyboardController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier  == "DisplayControllerSeque",
             let controller = segue.destination as? DisplayController {
@@ -48,7 +49,7 @@ class PanelController: UIViewController {
         inputAdapter.enterUtility(operation!)
         
     }
-    func rainOfPaperShips() {
+    func rainfOfPurpleStars() {
         let emitter = Emitter.get(with: #imageLiteral(resourceName: "purplestar"))
         emitter.emitterPosition = CGPoint(x: view.frame.width / 2, y: 0)
         emitter.emitterSize = CGSize(width: view.frame.width, height: 2)

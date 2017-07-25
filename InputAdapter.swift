@@ -85,12 +85,13 @@ class InputAdapter: InputProtocol {
         case .tan:
             pressTan()
         }
+        
+        // MARK: After press equal send string to brain
         if symbol != .equal {
             brain.enterEquation(equation: calculatingString)
         }
         
     }
-    
     
     
     

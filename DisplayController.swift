@@ -13,22 +13,18 @@ class DisplayController: UIViewController {
     @IBOutlet var displayLabel: UILabel!
     @IBOutlet weak var displayScrollView: UIScrollView!
     
-    
-    
     let outputAdapter = OutputAdapter.shared
     
+    // MARK: Presenting result on display
     func presentResult(result: String) {
         displayLabel.text = result
-       
         
-        //1. VIEW LIFECYCLE
-        //2. LAYOUTSUBVIEWS, SETNEEDSLAYOUT, LAYOUTIFNEEDED
         
+        
+        // MARK: Checking content size of scroll view and reloading it if needed(layout itself)
         displayScrollView.layoutIfNeeded()
         displayScrollView.scrollRectToVisible(displayLabel.bounds, animated: true)
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +32,5 @@ class DisplayController: UIViewController {
         
         outputAdapter.display = self
     }
-    
-    
-    
 }
 

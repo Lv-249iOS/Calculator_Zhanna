@@ -9,9 +9,7 @@
 import UIKit
 
 class AdditionalController: UIViewController {
-    
     var touchedUtilitySymbol: ((_ button: UIButton) -> ())?
-    
     
     @IBAction func touchUtilitySymbol(_ button: UIButton) {
         touchedUtilitySymbol?(button)
