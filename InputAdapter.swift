@@ -9,17 +9,17 @@
 import Foundation
 
 class InputAdapter: InputProtocol {
+    
     static let shared = InputAdapter()
     let brain = Brain.shared
     var calculatingString: String! = "" // movable string
-    
     
     // MARK: Enter numbers(Digits)
     func enterNum(_ number: Int) {
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" {
             calculatingString = String(number)
             
-        } else if calculatingString.characters.last! == ")" {
+        } else if calculatingString.characters.last == ")" {
             calculatingString =  calculatingString + " × " + "\(number)"
             
         } else if calculatingString.characters.last == "." || (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || (calculatingString.characters.count == 1 && (calculatingString.characters.last == "+" || calculatingString.characters.last == "-")) {
@@ -30,13 +30,10 @@ class InputAdapter: InputProtocol {
             
         } else {
             calculatingString = calculatingString + " \(number)"
-            
         }
         
         brain.enterEquation(equation: calculatingString)
     }
-    
-    
     
     // MARK: Enter symbols(OPERATIONS):
     func enterUtility(_ symbol: Operation) {
@@ -90,27 +87,21 @@ class InputAdapter: InputProtocol {
         if symbol != .equal {
             brain.enterEquation(equation: calculatingString)
         }
-        
     }
-    
-    
     
     // MARK: Checking Plus
     func pressPlus() {
         if calculatingString == nil || calculatingString == "0" || calculatingString == "" || (calculatingString.characters.count == 1 && calculatingString.characters.last == "-")  {
             calculatingString = "+"
             
-        } else if (calculatingString.characters.last == ")" || calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9")  ||  calculatingString.characters.last! == "." {
+        } else if (calculatingString.characters.last == ")" || calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9")  ||  calculatingString.characters.last == "." {
             calculatingString = calculatingString + " +"
-            
             
         } else if calculatingString.characters.last != "(" {
             calculatingString.characters.removeLast()
             calculatingString = calculatingString + "+"
         }
     }
-    
-    
     
     // MARK: Checking Minus
     func pressMin() {
@@ -126,7 +117,6 @@ class InputAdapter: InputProtocol {
             calculatingString = calculatingString + "-"
         }
     }
-    
     
     // MARK: Checking Multiply
     func pressMul() {
@@ -160,7 +150,6 @@ class InputAdapter: InputProtocol {
             if (calculatingString.characters.last! >= "0" && calculatingString.characters.last! <= "9") || (calculatingString.characters.last == ")") || calculatingString.characters.last! == "." {
                 calculatingString = calculatingString + " ^"
                 
-                
             } else if calculatingString.characters.last != "(" && calculatingString != "+" && calculatingString != "-" {
                 calculatingString.characters.removeLast()
                 calculatingString = calculatingString + "^"
@@ -179,7 +168,6 @@ class InputAdapter: InputProtocol {
         }
     }
     
-    
     // MARK: Checking Sinus
     func pressSin() {
         if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
@@ -191,7 +179,6 @@ class InputAdapter: InputProtocol {
         }
     }
     
-    
     // MARK: Checking Cosinus
     func pressCos() {
         if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
@@ -202,8 +189,6 @@ class InputAdapter: InputProtocol {
             calculatingString = calculatingString + " cos"
         }
     }
-    
-    
     
     // MARK: Checking Tan
     func pressTan() {
@@ -236,7 +221,6 @@ class InputAdapter: InputProtocol {
         } else {
             calculatingString = calculatingString + " ("
         }
-        
     }
     
     // MARK: Checking RightBracket
@@ -251,7 +235,6 @@ class InputAdapter: InputProtocol {
         }
     }
     
-    
     // MARK: Checking Equal
     func pressEqual() -> Bool {
         if (calculatingString != nil && calculatingString != "0" && calculatingString != "") &&
@@ -262,7 +245,6 @@ class InputAdapter: InputProtocol {
             return false
         }
     }
-    
     
     // MARK: Checking Dot
     func pressDot() {
@@ -276,11 +258,10 @@ class InputAdapter: InputProtocol {
                 
             } else if calculatingString.characters.last == "(" {
                 calculatingString = calculatingString + "0."
-                
             }
         }
-        
     }
+    
     // MARK: Checking constatnt Pi
     func pressPi() {
         if  calculatingString == nil || calculatingString == "0" || calculatingString == "" {
@@ -295,12 +276,10 @@ class InputAdapter: InputProtocol {
         } else if calculatingString.characters.count >= 3, calculatingString.substring(from: calculatingString.index(calculatingString.endIndex, offsetBy: -3)) == "( -" {
             calculatingString = calculatingString + "\(Double.pi)"
             
-            
         } else {
             calculatingString = calculatingString + " \(Double.pi)"
         }
     }
-    
     
     // MARK: Checking constant E
     func pressE() {
@@ -316,11 +295,9 @@ class InputAdapter: InputProtocol {
         } else if calculatingString.characters.count >= 3, calculatingString.substring(from: calculatingString.index(calculatingString.endIndex, offsetBy: -3)) == "( -" {
             calculatingString = calculatingString + "\(M_E)"
             
-            
         } else {
             calculatingString = calculatingString + " \(M_E)"
         }
     }
-    
 }
 

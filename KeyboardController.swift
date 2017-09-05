@@ -10,7 +10,6 @@ import UIKit
 
 class KeyboardController: UIViewController {
     
-    
     var touchedDigit: ((_ digit: Int) -> ())?
     var touchedSymbol: ((_ symbol: Int) -> ())?
     var additionalController: AdditionalController!
@@ -34,7 +33,6 @@ class KeyboardController: UIViewController {
         _touched(button: button)
     }
     
-    
     // MARK: Animate buttons
     private func _touched(button: UIButton) {
         let beforeColor = button.backgroundColor
@@ -48,9 +46,7 @@ class KeyboardController: UIViewController {
                 button.layer.backgroundColor = beforeColor?.cgColor
             }
         })
-        
     }
-    
     
     // MARK: Navigation of AdditionalController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -59,10 +55,7 @@ class KeyboardController: UIViewController {
             additionalController = controller
             additionalController.touchedUtilitySymbol = { [weak self] button in
                 self?.touchSymbol(button: button)
-                
-                
             }
         }
     }
-    
 }

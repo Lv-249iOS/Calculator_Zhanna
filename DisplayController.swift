@@ -26,7 +26,6 @@ class DisplayController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         outputAdapter.display = self
     }
 }

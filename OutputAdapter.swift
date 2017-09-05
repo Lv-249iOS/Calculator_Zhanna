@@ -9,9 +9,9 @@
 import Foundation
 
 class OutputAdapter: OutputProtocol {
+    
     static let shared = OutputAdapter()
     var display: DisplayController?
-    
     
     // MARK: Sending result to display
     func presentResult(result: String) {

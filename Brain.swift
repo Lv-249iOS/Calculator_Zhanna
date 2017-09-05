@@ -9,10 +9,10 @@
 import Foundation
 
 class Brain: Model {
+    
     static let shared = Brain()
     let outputAdapter = OutputAdapter.shared
     var equation: String!
-    
     
     func enterEquation(equation: String) {
         self.equation = equation
@@ -25,7 +25,6 @@ class Brain: Model {
         outputAdapter.presentResult(result: "0")
     }
     
-    
     // MARK: Processing equation and sending result to outputAdapter
     func process(completion: (_ result: Double) -> ()) {
         let result = calculateEquation()
@@ -33,13 +32,11 @@ class Brain: Model {
         completion(result)
     }
     
-    
     // MARK: Separating string to tokens
     func parseInfix(_ equationString: String) -> [String] {
         let tokens = equationString.characters.split{$0 == " "}.map(String.init)
         return tokens
     }
-    
     
     func calculateEquation() -> Double {
         let rpnString = reverseToPolishNotation(tokens: parseInfix(equation))
@@ -51,7 +48,6 @@ class Brain: Model {
                 
             } else if !arrayOfOperations.isEmpty && (token == "cos" || token == "sin" || token == "√" || token == "log" || token == "tan") {
                 let unaryOperation = Double(arrayOfOperations.removeLast())
-                
                 
                 // Performing unary operations
                 switch token {
@@ -65,7 +61,6 @@ class Brain: Model {
                     arrayOfOperations += [String(log(unaryOperation!))]
                 case "tan":
                     arrayOfOperations += [String(tan(unaryOperation!))]
-                    
                 default: break
                 }
             } else {
@@ -87,7 +82,6 @@ class Brain: Model {
                             arrayOfOperations += [String(pow(operandOne, operandTwo))]
                         default: break
                         }
-                        
                     }
                 } else {
                     // On incorrect input
@@ -102,7 +96,6 @@ class Brain: Model {
     func reverseToPolishNotation(tokens: [String]) -> [String] {
         var arrayOfOperands : [String] = [] // Array for equations
         var arrayOfOperations : [String] = [] // Array for operations
-        
         
         for token in tokens {
             switch token {
@@ -137,9 +130,6 @@ class Brain: Model {
         return (arrayOfOperands + arrayOfOperations.reversed())
     }
     
-    
-    
-    
     // MARK: setting priority of operations
     let operations = [
         "√" : (prec: 5, rAssoc: true),
@@ -153,6 +143,5 @@ class Brain: Model {
         "+" : (prec: 2, rAssoc: false),
         "-" : (prec: 2, rAssoc: false)
     ]
-    
 }
 

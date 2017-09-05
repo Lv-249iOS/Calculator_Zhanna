@@ -16,18 +16,16 @@ class PanelController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         rainfOfPurpleStars()
     }
     
-    // MARK: Navigation 
+    // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier  == "DisplayControllerSeque",
             let controller = segue.destination as? DisplayController {
             display = controller
         } else if segue.identifier  == "KeyboardControllerSeque",
             let controller = segue.destination as? KeyboardController {
-            
             keyboard = controller
             keyboard.touchedDigit = { [weak self] digit in
                 self?.touchDigit(digit: digit)
@@ -36,10 +34,8 @@ class PanelController: UIViewController {
             keyboard.touchedSymbol = { [weak self] symbol in
                 self?.touchSymbol(symbol: symbol)
             }
-            
         }
     }
-    
     
     func touchDigit(digit: Int) {
         inputAdapter.enterNum(digit)
@@ -48,7 +44,6 @@ class PanelController: UIViewController {
     func touchSymbol(symbol: Int) {
         let operation = Operation(rawValue: symbol)
         inputAdapter.enterUtility(operation!)
-        
     }
     
     // MARK: Setting emitter position
